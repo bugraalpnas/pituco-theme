@@ -1,1 +1,37 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement-bar-0":{"type":"announcement","settings":{"text":"Welcome to our store","link":""}}},"block_order":["announcement-bar-0"],"settings":{}},"header":{"type":"header","settings":{"logo_position":"middle-left","mobile_logo_position":"center","menu":"main-menu","menu_type_desktop":"dropdown","sticky_header_type":"on-scroll-up","show_line_separator":true,"color_scheme":"scheme-1","enable_country_selector":true,"enable_language_selector":true,"margin_bottom":0,"padding_top":20,"padding_bottom":20}}},"order":["announcement-bar","header"]}
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "marquee_text": "🎉 %15 İNDİRİM KAZANMAK İÇİN TIKLAYIN! • ÖZEL FIRSATLARDAN İLK SİZ HABERDAR OLUN! •",
+        "bg_color": "#D84575",
+        "text_color": "#ffffff",
+        "speed": 160,
+        "popup_title": "%15 İndirim Kazanın!",
+        "popup_desc": "E-posta listemize katılın ve ilk siparişinizde kullanabileceğiniz %15 indirim kodunu hemen alın.",
+        "button_text": "İndirim Kodumu Gönder",
+        "accent_color": "#D84575"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "middle-left",
+        "mobile_logo_position": "center",
+        "menu": "main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "scheme-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": ["announcement-bar", "header"]
+}
