@@ -3715,3 +3715,53 @@ details-disclosure>details {
   font-weight: 700;
   font-size: 1.25rem;
 }
+/* Pituco Custom Product Card Sizing */
+
+/* Home Page Product Cards */
+.template-index .card-wrapper {
+  max-width: 184px;
+  margin: 0 auto;
+}
+
+.template-index .card__media {
+  width: 166px !important;
+  height: 249px !important;
+}
+
+.template-index .card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Collection/Product Pages Product Cards */
+body:not(.template-index) .card-wrapper {
+  max-width: 306px;
+  margin: 0 auto;
+}
+
+body:not(.template-index) .card__media {
+  width: 288px !important;
+  height: 432px !important;
+}
+
+body:not(.template-index) .card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 400px) {
+  .template-index .card-wrapper,
+  body:not(.template-index) .card-wrapper {
+    max-width: 100%;
+  }
+  
+  .template-index .card__media,
+  body:not(.template-index) .card__media {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 288/432;
+  }
+}
