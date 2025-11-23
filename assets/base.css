@@ -225,6 +225,43 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   list-style: none;
 }
 
+/* Hide hCaptcha badge */
+.h-captcha,
+iframe[src*="hcaptcha"],
+div[class*="hcaptcha"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Increase product card font sizes */
+.card__heading {
+  font-size: 1.125rem !important;
+  /* 18px - increased from default */
+}
+
+.card__heading a {
+  font-weight: 600 !important;
+}
+
+.card-information .price-item {
+  font-size: 1.125rem !important;
+  /* 18px - increased from default */
+  font-weight: 700 !important;
+}
+
+@media screen and (min-width: 750px) {
+  .card__heading {
+    font-size: 1.25rem !important;
+    /* 20px on tablet and up */
+  }
+
+  .card-information .price-item {
+    font-size: 1.25rem !important;
+    /* 20px on tablet and up */
+  }
+}
+
 .hidden {
   display: none !important;
 }
