@@ -173,26 +173,29 @@
         "padding_bottom": 36
       }
     },
-    "hero_custom_8gYCpc": {
-      "type": "hero-custom",
-      "name": "Custom Hero",
+    "pituco_hero_JDGN6y": {
+      "type": "pituco-hero",
+      "name": "Pituco Hero",
       "settings": {
-        "heading_start": "Stilinizi",
-        "heading_highlight": "Duvar Sanatına",
-        "heading_end": "Dönüştürün",
-        "text": "Fotoğraflarınızla, metinlerinizle ve tarzınızla kişiselleştirilmiş posterler yaratın. Premium kalitede baskılar, kapınıza kadar teslim.",
-        "button_label_1": "Kendi Posterini Oluştur",
-        "button_link_1": "",
-        "button_label_2": "Alışverişe Başla",
-        "button_link_2": "",
-        "footer_text": "✨ Sizin hikayeniz için özel • 💕 Aşkınız için özel • 🎨 Tarzınız için özel",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "title_line1": "Stilinizi",
+        "title_line2": "Duvar Sanatına",
+        "title_line3": "Dönüştürün",
+        "description": "Fotoğraflarınızla, metinlerinizle ve tarzınızla kişiselleştirilmiş posterler yaratın. Premium kalitede baskılar, kapınıza kadar teslim.",
+        "button1_text": "Kendi Posterini Oluştur",
+        "button1_link": "",
+        "button2_text": "Alışverişe Başla",
+        "button2_link": "shopify://collections/all",
+        "feature1": "✨ Sizin hikayeniz için özel",
+        "feature2": "💕 Aşkınız için özel",
+        "feature3": "🎨 Tarzınız için özel",
+        "bg_color": "#0a0a0a",
+        "text_color": "#ffffff",
+        "accent_color": "#D84575"
       }
     }
   },
   "order": [
-    "hero_custom_8gYCpc",
+    "pituco_hero_JDGN6y",
     "rich_text",
     "featured_collection",
     "collage",
