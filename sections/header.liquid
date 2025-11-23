@@ -232,7 +232,18 @@
           </localization-form>
         {%- endif -%}
       </div>
-
+      {%- if settings.social_instagram_link != blank -%}
+        <a href="{{ settings.social_instagram_link }}" class="header__icon link focus-inset">
+          {%- render 'icon-instagram' -%}
+          <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+        </a>
+      {%- endif -%}
+      {%- if settings.social_tiktok_link != blank -%}
+        <a href="{{ settings.social_tiktok_link }}" class="header__icon link focus-inset">
+          {%- render 'icon-tiktok' -%}
+          <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
+        </a>
+      {%- endif -%}
       <a href="/hediyelikposterler" class="header__icon link focus-inset" style="width: auto; height: auto; display: flex; align-items: center; justify-content: center;">
         <img src="{{ 'icon-gift.png' | asset_url }}" alt="Hediyelik Posterler" width="140" height="40" style="height: 3.5rem; width: auto; object-fit: contain;">
       </a>

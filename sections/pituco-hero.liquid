@@ -158,6 +158,144 @@
     margin: 0 auto;
   }
 
+  .pituco-hero-content {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  /* --- TITLE AYARLARI (Referans Koda Göre) --- */
+  .pituco-hero-title {
+    /* Font-serif */
+    font-family: serif; 
+    /* Font-bold */
+    font-weight: 700;
+    /* Tracking-tight (-0.025em) */
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    
+    /* React kodundaki gibi kelimelerin akmasını sağlamak için flex column yerine block kullanıyoruz */
+    display: block; 
+  }
+
+  /* Text-5xl (Mobile Base) */
+  .pituco-hero-title {
+    font-size: 3rem; /* 48px */
+  }
+
+  /* Text-7xl (Tablet/MD Breakpoint) */
+  @media screen and (min-width: 768px) {
+    .pituco-hero-title {
+      font-size: 4.5rem; /* 72px */
+    }
+  }
+
+  /* Text-8xl (Desktop/LG Breakpoint) */
+  @media screen and (min-width: 1024px) {
+    .pituco-hero-title {
+      font-size: 6rem; /* 96px */
+    }
+  }
+
+  .title-line1,
+  .title-line2,
+  .title-line3 {
+    /* React tasarımında kelimeler yan yanaydı, burada da inline-block ile akışkan bırakıyoruz */
+    display: inline-block;
+    margin: 0 6px; /* Kelimeler arası hafif boşluk */
+  }
+
+  .title-line2 {
+    font-style: italic;
+    /* Parent zaten serif olduğu için buraya tekrar yazmaya gerek yok */
+  }
+
+  /* --- DESCRIPTION AYARLARI --- */
+  .pituco-hero-description {
+    /* Text-xl (Mobile) */
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem;
+    margin-bottom: 2rem;
+    /* Text-muted-foreground (Hafif opaklık) */
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 672px; /* max-w-2xl */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Text-2xl (Tablet/MD) */
+  @media screen and (min-width: 768px) {
+    .pituco-hero-description {
+      font-size: 1.5rem; /* 24px */
+      line-height: 2rem;
+    }
+  }
+
+  /* --- BUTTON AYARLARI --- */
+  .pituco-hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+  }
+
+  .pituco-btn {
+    /* h-14 (56px) olmasını sağlamak için padding ayarı */
+    padding: 16px 32px; /* px-8 */
+    border-radius: 8px; /* Default radius */
+    
+    /* Text-lg */
+    font-size: 1.125rem; /* 18px */
+    font-weight: 600; /* Genellikle butonlar medium/semibold olur */
+    
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-height: 56px; /* h-14 garantisi */
+  }
+
+  .pituco-btn-outline {
+    border: 1px solid rgba(255,255,255,0.2); /* React kodunda bg-bright var, burada outline taklit ediyoruz */
+    background-color: #fff;
+    color: #000; /* Bright theme usually means light background dark text */
+  }
+
+  .pituco-btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .pituco-btn-primary {
+    border: none;
+    color: #fff;
+  }
+
+  .pituco-btn-primary:hover {
+    filter: brightness(1.1);
+  }
+
+  /* --- FEATURES (ALT YAZI) AYARLARI --- */
+  .pituco-hero-features {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Text-sm */
+    font-size: 0.875rem; /* 14px */
+    /* Text-muted-foreground */
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 2rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+  }
+
   /* Araya nokta koymak istersen CSS ile ekleyebiliriz, şimdilik sadece boşluk var */
   .feature-item:not(:last-child)::after {
     content: "•";
