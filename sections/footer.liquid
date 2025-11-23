@@ -1,0 +1,36 @@
+{%- style -%}
+  .footer {
+    margin-top: 6rem; /* mt-24 approx */
+    padding-top: 3rem; /* py-12 */
+    padding-bottom: 3rem;
+    border-top: 1px solid rgb(var(--border));
+    text-align: center;
+    color: rgba(var(--color-foreground), 0.65); /* text-muted-foreground */
+  }
+
+  .footer__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+{%- endstyle -%}
+
+<footer class="footer color-{{ section.settings.color_scheme }} gradient">
+  <div class="footer__content">
+    <p>&copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. Tüm hakları saklıdır.</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ]
+}
+{% endschema %}

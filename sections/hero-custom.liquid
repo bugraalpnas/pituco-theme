@@ -1,0 +1,237 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .hero-custom {
+    position: relative;
+    text-align: center;
+  }
+
+  .hero-custom__container {
+    max-width: 896px; /* max-w-4xl */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hero-custom__heading {
+    font-family: var(--font-heading-family);
+    font-weight: 700;
+    letter-spacing: -0.025em; /* tracking-tight */
+    line-height: 1.1;
+    margin: 0;
+    font-size: 3rem; /* text-5xl approx */
+  }
+
+  @media screen and (min-width: 750px) {
+    .hero-custom__heading {
+      font-size: 4.5rem; /* text-7xl approx */
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .hero-custom__heading {
+      font-size: 6rem; /* text-8xl approx */
+    }
+  }
+
+  .hero-custom__heading-highlight {
+    color: rgb(var(--color-button)); /* text-primary */
+    font-style: italic;
+  }
+
+  .hero-custom__text {
+    font-size: 1.25rem; /* text-xl */
+    color: rgba(var(--color-foreground), 0.65); /* text-muted-foreground */
+    max-width: 42rem; /* max-w-2xl */
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  @media screen and (min-width: 750px) {
+    .hero-custom__text {
+      font-size: 1.5rem; /* text-2xl */
+    }
+  }
+
+  .hero-custom__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+  }
+
+  @media screen and (min-width: 640px) {
+    .hero-custom__buttons {
+      flex-direction: row;
+    }
+  }
+
+  .hero-custom__button {
+    height: 3.5rem; /* h-14 */
+    padding: 0 2rem; /* px-8 */
+    font-size: 1.125rem; /* text-lg */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--buttons-radius);
+    text-decoration: none;
+    transition: opacity 0.2s;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+  }
+
+  .hero-custom__button:hover {
+    opacity: 0.9;
+  }
+
+  .hero-custom__button--primary {
+    background-color: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+  }
+
+  .hero-custom__button--secondary {
+    background-color: rgb(var(--bright));
+    color: rgb(var(--bright-foreground));
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  }
+
+  .hero-custom__footer-text {
+    font-size: 0.875rem; /* text-sm */
+    color: rgba(var(--color-foreground), 0.65); /* text-muted-foreground */
+    padding-top: 2rem;
+  }
+{%- endstyle -%}
+
+<div class="hero-custom section-{{ section.id }}-padding">
+  <div class="hero-custom__container">
+    <div class="hero-custom__content">
+      <h1 class="hero-custom__heading">
+        {{ section.settings.heading_start }}
+        <span class="hero-custom__heading-highlight">{{ section.settings.heading_highlight }}</span>
+        {{ section.settings.heading_end }}
+      </h1>
+      <p class="hero-custom__text">
+        {{ section.settings.text }}
+      </p>
+    </div>
+
+    <div class="hero-custom__buttons">
+      {%- if section.settings.button_label_1 != blank -%}
+        <a href="{{ section.settings.button_link_1 }}" class="hero-custom__button hero-custom__button--secondary">
+          {{ section.settings.button_label_1 }}
+        </a>
+      {%- endif -%}
+      {%- if section.settings.button_label_2 != blank -%}
+        <a href="{{ section.settings.button_link_2 }}" class="hero-custom__button hero-custom__button--primary">
+          {{ section.settings.button_label_2 }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="hero-custom__footer-text">
+      {{ section.settings.footer_text }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_start",
+      "default": "Stilinizi ",
+      "label": "Heading Start"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "default": "Duvar Sanatına",
+      "label": "Heading Highlight (Italic/Color)"
+    },
+    {
+      "type": "text",
+      "id": "heading_end",
+      "default": " Dönüştürün",
+      "label": "Heading End"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "default": "Fotoğraflarınızla, metinlerinizle ve tarzınızla kişiselleştirilmiş posterler yaratın. Premium kalitede baskılar, kapınıza kadar teslim.",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_label_1",
+      "default": "Kendi Posterini Oluştur",
+      "label": "Button 1 Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link_1",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "default": "Alışverişe Başla",
+      "label": "Button 2 Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "default": "✨ Sizin hikayeniz için özel • 💕 Aşkınız için özel • 🎨 Tarzınız için özel",
+      "label": "Footer Text"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Hero"
+    }
+  ]
+}
+{% endschema %}

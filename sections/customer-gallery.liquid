@@ -1,0 +1,191 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .customer-gallery__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .customer-gallery__heading {
+    font-family: var(--font-heading-family);
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .customer-gallery__heading {
+      font-size: 3rem; /* text-5xl */
+    }
+  }
+
+  .customer-gallery__heading-highlight {
+    color: rgb(var(--color-button));
+  }
+
+  .customer-gallery__text {
+    font-size: 1.125rem; /* text-lg */
+    color: rgba(var(--color-foreground), 0.65);
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .customer-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .customer-gallery__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .customer-gallery__grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  .customer-gallery__item {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: var(--media-radius);
+    background-color: rgba(var(--color-foreground), 0.1);
+    cursor: pointer;
+  }
+
+  .customer-gallery__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .customer-gallery__item:hover .customer-gallery__image {
+    transform: scale(1.1);
+  }
+{%- endstyle -%}
+
+<div class="customer-gallery section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="customer-gallery__header">
+      <h2 class="customer-gallery__heading">
+        {{ section.settings.heading_start }}
+        <span class="customer-gallery__heading-highlight">{{ section.settings.heading_highlight }}</span>
+      </h2>
+      <p class="customer-gallery__text">
+        {{ section.settings.text }}
+      </p>
+    </div>
+
+    <div class="customer-gallery__grid">
+      {%- for block in section.blocks -%}
+        <div class="customer-gallery__item">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 400 | image_tag: class: 'customer-gallery__image', loading: 'lazy' }}
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg customer-gallery__image' }}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer Gallery",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_start",
+      "default": "Müşterilerimizin ",
+      "label": "Heading Start"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "default": "Özel Anıları",
+      "label": "Heading Highlight"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "default": "Binlerce mutlu müşterimizin evlerini süsleyen özel tasarımlardan ilham alın",
+      "label": "Text"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Gallery",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

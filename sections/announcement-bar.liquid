@@ -1,0 +1,315 @@
+{% schema %}
+{
+  "name": "Kayan Yazı",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Kayan Yazı Ayarları"
+    },
+    {
+      "type": "text",
+      "id": "marquee_text",
+      "label": "Bant Metni",
+      "default": "🎉 %15 İNDİRİM KAZANMAK İÇİN TIKLAYIN! • ÖZEL FIRSATLARDAN İLK SİZ HABERDAR OLUN! •"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Bant Arka Planı",
+      "default": "#D84575"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Bant Yazı Rengi",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 5,
+      "max": 200,
+      "step": 5,
+      "unit": "sn",
+      "label": "Hız",
+      "default": 160
+    },
+    {
+      "type": "header",
+      "content": "Pop-up Ayarları"
+    },
+    {
+      "type": "text",
+      "id": "popup_title",
+      "label": "Pop-up Başlığı",
+      "default": "%15 İndirim Kazanın!"
+    },
+    {
+      "type": "textarea",
+      "id": "popup_desc",
+      "label": "Pop-up Açıklaması",
+      "default": "E-posta listemize katılın ve ilk siparişinizde kullanabileceğiniz %15 indirim kodunu hemen alın."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Buton Metni",
+      "default": "İndirim Kodumu Gönder"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Pop-up Vurgu Rengi",
+      "default": "#D84575"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kayan Yazı + Akıllı Pop-up"
+    }
+  ]
+}
+{% endschema %}
+
+<div id="marquee-bar-container" class="marquee-section" onclick="openNewsletterModal()" style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }}; cursor: pointer;">
+  <div class="marquee-wrapper">
+    <div class="marquee-content">
+      {% for i in (1..10) %}
+        <span style="font-size: 14px; font-weight: bold; text-transform: uppercase;">{{ section.settings.marquee_text }} &nbsp;&nbsp;</span>
+      {% endfor %}
+    </div>
+    <div class="marquee-content">
+      {% for i in (1..10) %}
+        <span style="font-size: 14px; font-weight: bold; text-transform: uppercase;">{{ section.settings.marquee_text }} &nbsp;&nbsp;</span>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div id="newsletter-modal" class="modal-overlay">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeNewsletterModal()">❌</span> {% form 'customer', class: 'newsletter-form' %}
+      
+      {% if form.posted_successfully? %}
+        <div class="success-message">
+          <h3>Harika! 🎉</h3>
+          <p>Kaydınız alındı. İndirim kodunuz e-posta adresinize gönderildi.</p>
+          <button type="button" class="btn-main" onclick="closeNewsletterModal()">Alışverişe Dön</button>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // 1. Modalı açık tut (Kullanıcı başarı mesajını görsün)
+                document.getElementById('newsletter-modal').style.display = 'flex';
+                
+                // 2. Tarayıcı hafızasına "Bu kişi üye oldu" diye yaz
+                localStorage.setItem('is_subscribed', 'true');
+
+                // 3. URL'deki o gıcık ?customer_posted=true yazısını SİL (Sayfa yenilenmeden)
+                if (window.history.replaceState) {
+                    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({path:newUrl}, '', newUrl);
+                }
+            });
+        </script>
+      {% else %}
+      
+        <h2 class="modal-title">{{ section.settings.popup_title }}</h2>
+        <p class="modal-desc">{{ section.settings.popup_desc }}</p>
+        
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        
+        <div class="input-group">
+          <input 
+            type="email" 
+            name="contact[email]" 
+            class="modal-input" 
+            placeholder="E-posta adresinizi girin" 
+            required 
+            autocorrect="off" 
+            autocapitalize="off" 
+            value="{{ form.email }}"
+          >
+        </div>
+
+        {% if form.errors %}
+          <div class="error-message">
+            {{ form.errors | default_errors }}
+          </div>
+        {% endif %}
+
+        <button type="submit" class="btn-main">{{ section.settings.button_text }}</button>
+        
+        <div class="no-thanks" onclick="closeNewsletterModal()">
+          <span>❌</span> Hayır, indirim kullanmak istemiyorum
+        </div>
+
+      {% endif %}
+    {% endform %}
+  </div>
+</div>
+
+<style>
+  /* Marquee Stilleri */
+  .marquee-section {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    transition: opacity 0.3s;
+  }
+  .marquee-section:hover {
+    opacity: 0.9;
+  }
+  .marquee-wrapper {
+    display: flex;
+    animation: marquee-scroll {{ section.settings.speed }}s linear infinite;
+  }
+  .marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  @keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Modal Stilleri */
+  .modal-overlay {
+    display: none; /* Başlangıçta gizli */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Karartma */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+  }
+
+  .modal-content {
+    background-color: #121212; /* Koyu Tema */
+    color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #aaa;
+    transition: transform 0.2s;
+  }
+  .close-btn:hover { transform: scale(1.2); color: #fff; }
+
+  .modal-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #fff;
+    font-family: serif;
+  }
+
+  .modal-desc {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+
+  .modal-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid {{ section.settings.accent_color }};
+    background: transparent;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  .modal-input:focus {
+    outline: none;
+    box-shadow: 0 0 5px {{ section.settings.accent_color }};
+  }
+
+  .btn-main {
+    width: 100%;
+    padding: 12px;
+    background-color: {{ section.settings.accent_color }};
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .btn-main:hover {
+    filter: brightness(1.1);
+  }
+
+  .no-thanks {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #888;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .no-thanks:hover { color: #fff; }
+  
+  .success-message h3 { color: {{ section.settings.accent_color }}; margin-bottom: 10px; }
+  .error-message { color: #ff4444; margin-bottom: 10px; font-size: 12px; }
+
+  /* Mouse üzerine gelince dursun */
+  .marquee-section:hover .marquee-wrapper {
+    animation-play-state: paused;
+  }
+  
+</style>
+
+<script>
+  function openNewsletterModal() {
+    document.getElementById('newsletter-modal').style.display = 'flex';
+  }
+
+  function closeNewsletterModal() {
+    document.getElementById('newsletter-modal').style.display = 'none';
+  }
+
+  // Dışarı tıklayınca kapatma
+  window.onclick = function(event) {
+    var modal = document.getElementById('newsletter-modal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // SAYFA YÜKLENDİĞİNDE ÇALIŞACAK KOD
+  document.addEventListener("DOMContentLoaded", function() {
+    // Kullanıcı daha önce üye olduysa kontrol et
+    if (localStorage.getItem('is_subscribed') === 'true') {
+        // EĞER ÜYE OLMUŞSA: Üstteki kayan yazıyı tamamen yok et!
+        var marqueeBar = document.getElementById('marquee-bar-container');
+        if(marqueeBar) {
+            marqueeBar.style.display = 'none';
+        }
+    }
+  });
+</script>

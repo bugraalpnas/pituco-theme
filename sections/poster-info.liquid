@@ -1,0 +1,304 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .poster-info {
+    background-color: rgba(var(--color-foreground), 0.04); /* bg-card/50 approx */
+  }
+
+  .poster-info__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .poster-info__heading {
+    font-family: var(--font-heading-family);
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .poster-info__text {
+    font-size: 1.125rem; /* text-lg */
+    color: rgba(var(--color-foreground), 0.65);
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .poster-info__grid-images {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .poster-info__grid-images {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .poster-info__feature-image-wrapper {
+    aspect-ratio: 1 / 1;
+    background-color: rgba(var(--color-foreground), 0.1);
+    border-radius: var(--media-radius);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .poster-info__feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .poster-info__feature-title {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+  }
+
+  .poster-info__feature-text {
+    color: rgba(var(--color-foreground), 0.65);
+    margin: 0;
+  }
+
+  .poster-info__grid-checks {
+    display: grid;
+    gap: 2rem;
+    max-width: 56rem; /* max-w-4xl */
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 750px) {
+    .poster-info__grid-checks {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .poster-info__check-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .poster-info__check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .poster-info__check-icon {
+    color: rgb(var(--color-button));
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .poster-info__check-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  .poster-info__check-text {
+    font-size: 0.875rem; /* text-sm */
+    color: rgba(var(--color-foreground), 0.65);
+    margin: 0;
+  }
+{%- endstyle -%}
+
+<div class="poster-info section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="poster-info__header">
+      <h2 class="poster-info__heading">{{ section.settings.heading }}</h2>
+      <p class="poster-info__text">{{ section.settings.text }}</p>
+    </div>
+
+    <div class="poster-info__grid-images">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'feature_image' -%}
+          <div class="poster-info__feature">
+            <div class="poster-info__feature-image-wrapper">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 500 | image_tag: class: 'poster-info__feature-image', loading: 'lazy' }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg poster-info__feature-image' }}
+              {%- endif -%}
+            </div>
+            <h3 class="poster-info__feature-title">{{ block.settings.title }}</h3>
+            <p class="poster-info__feature-text">{{ block.settings.text }}</p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="poster-info__grid-checks">
+      <div class="poster-info__check-column">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'feature_check' and forloop.index <= 2 -%}
+             {%- render 'poster-info-check-item', block: block -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <div class="poster-info__check-column">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'feature_check' and forloop.index > 2 -%}
+             {%- render 'poster-info-check-item', block: block -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Poster Info",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Kaliteli Üretim, Kalıcı Anılar",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "default": "Her posteriniz özenle seçilmiş malzemelerle üretiliyor",
+      "label": "Text"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_image",
+      "name": "Image Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Feature Title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "default": "Feature description text.",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "feature_check",
+      "name": "Check Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Check Feature Title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "default": "Check feature description text.",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Poster Info",
+      "blocks": [
+        {
+          "type": "feature_image",
+          "settings": {
+            "title": "Premium Baskı Kağıdı",
+            "text": "300 gsm premium mat kağıt kullanarak uzun ömürlü ve canlı renkler sunuyoruz."
+          }
+        },
+        {
+          "type": "feature_image",
+          "settings": {
+            "title": "Kaliteli Çerçeveler",
+            "text": "Doğal ahşap ve modern metal çerçeve seçenekleri ile dekorasyonunuza uyum sağlar."
+          }
+        },
+        {
+          "type": "feature_image",
+          "settings": {
+            "title": "Profesyonel Detay",
+            "text": "Her poster özenle paketlenir ve hasarsız teslim garantisi ile gönderilir."
+          }
+        },
+        {
+          "type": "feature_check",
+          "settings": {
+            "title": "UV Korumalı Baskı",
+            "text": "Renklerin solmasını önleyen özel UV koruma teknolojisi"
+          }
+        },
+        {
+          "type": "feature_check",
+          "settings": {
+            "title": "Su Bazlı Mürekkep",
+            "text": "Çevre dostu, kokusuz ve insan sağlığına zararsız mürekkep"
+          }
+        },
+        {
+          "type": "feature_check",
+          "settings": {
+            "title": "Hızlı ve Güvenli Kargo",
+            "text": "Özel koruyucu ambalaj ile 2-4 iş günü teslimat"
+          }
+        },
+        {
+          "type": "feature_check",
+          "settings": {
+            "title": "Memnuniyet Garantisi",
+            "text": "30 gün içinde koşulsuz iade ve değişim hakkı"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
