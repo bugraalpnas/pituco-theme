@@ -77,12 +77,19 @@
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
   }
 
   .cart-hover-popup.show {
     display: block;
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Ensure cart icon is positioned relative */
+  #cart-icon-bubble {
+    position: relative !important;
   }
 
   .cart-hover-content {
