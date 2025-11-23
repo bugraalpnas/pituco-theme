@@ -233,13 +233,13 @@
         {%- endif -%}
       </div>
       {%- if settings.social_instagram_link != blank -%}
-        <a href="{{ settings.social_instagram_link }}" class="header__icon link focus-inset small-hide">
+        <a href="{{ settings.social_instagram_link }}" class="header__icon link focus-inset">
           {%- render 'icon-instagram' -%}
           <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
         </a>
       {%- endif -%}
       {%- if settings.social_tiktok_link != blank -%}
-        <a href="{{ settings.social_tiktok_link }}" class="header__icon link focus-inset small-hide">
+        <a href="{{ settings.social_tiktok_link }}" class="header__icon link focus-inset">
           {%- render 'icon-tiktok' -%}
           <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
         </a>
