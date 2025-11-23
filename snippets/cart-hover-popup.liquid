@@ -65,15 +65,15 @@
   .cart-hover-popup {
     display: none;
     position: absolute;
-    top: calc(100% + 0.5rem);
-    right: 0 !important;
+    top: 100%;
+    right: 0;
+    margin-top: 0.8rem;
     background: #121212;
     border: 1px solid #333;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    min-width: 350px;
-    max-width: 400px;
-    z-index: 1000;
+    width: 360px;
+    z-index: 10000;
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -86,19 +86,19 @@
   }
 
   .cart-hover-content {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
 
   .cart-hover-items {
-    max-height: 400px;
+    max-height: 350px;
     overflow-y: auto;
     margin-bottom: 1rem;
   }
 
   .cart-hover-item {
     display: flex;
-    gap: 1rem;
-    padding: 1rem 0;
+    gap: 0.8rem;
+    padding: 0.8rem 0;
     border-bottom: 1px solid #333;
   }
 
@@ -112,8 +112,8 @@
 
   .cart-hover-item-image {
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     flex-shrink: 0;
     border-radius: 4px;
     overflow: hidden;
@@ -137,15 +137,15 @@
 
   .cart-hover-quantity-badge {
     position: absolute;
-    bottom: 4px;
-    right: 4px;
-    width: 24px;
-    height: 24px;
+    bottom: 3px;
+    right: 3px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
@@ -154,12 +154,12 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.3rem;
     min-width: 0;
   }
 
   .cart-hover-item-title {
-    font-size: 14px;
+    font-size: 13px;
     color: #fff;
     line-height: 1.3;
     word-wrap: break-word;
@@ -170,7 +170,7 @@
   }
 
   .cart-hover-item-variant {
-    font-size: 12px;
+    font-size: 11px;
     color: #999;
   }
 
@@ -192,11 +192,11 @@
     color: #fff;
     border: 1px solid #D84575;
     border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 13px;
+    padding: 3px 6px;
+    font-size: 12px;
     cursor: pointer;
     outline: none;
-    min-width: 50px;
+    min-width: 45px;
   }
 
   .cart-hover-qty-select:hover {
@@ -208,7 +208,7 @@
   }
 
   .cart-hover-item-price {
-    font-size: 14px;
+    font-size: 13px;
     color: #D84575;
     font-weight: 700;
     white-space: nowrap;
@@ -223,8 +223,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
-    font-size: 16px;
+    margin-bottom: 0.8rem;
+    font-size: 15px;
   }
 
   .cart-hover-total-label {
@@ -235,19 +235,20 @@
   .cart-hover-total-price {
     color: #D84575;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .cart-hover-view-cart {
     display: block;
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     background: #D84575;
     color: #fff;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
+    font-size: 14px;
     transition: filter 0.3s ease;
   }
 
@@ -275,7 +276,7 @@
 
   /* Scrollbar styling */
   .cart-hover-items::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
   }
 
   .cart-hover-items::-webkit-scrollbar-track {
@@ -295,9 +296,7 @@
   /* Mobile adjustments */
   @media screen and (max-width: 749px) {
     .cart-hover-popup {
-      right: -1rem;
-      min-width: 300px;
-      max-width: 340px;
+      width: 320px;
     }
   }
 </style>
