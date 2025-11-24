@@ -236,8 +236,8 @@ div[class*="hcaptcha"] {
 
 /* Increase product card font sizes */
 .card__heading {
-  font-size: 1.125rem !important;
-  /* 18px - increased from default */
+  font-size: 1.5rem !important;
+  /* 24px - increased from default */
 }
 
 .card__heading a {
@@ -245,21 +245,24 @@ div[class*="hcaptcha"] {
 }
 
 .card-information .price-item {
-  font-size: 1.125rem !important;
-  /* 18px - increased from default */
+  font-size: 1.5rem !important;
+  /* 24px - increased from default */
   font-weight: 700 !important;
 }
 
 @media screen and (min-width: 750px) {
   .card__heading {
-    font-size: 1.25rem !important;
-    /* 20px on tablet and up */
+    font-size: 1.8rem !important;
+    /* 28.8px on tablet and up */
   }
 
   .card-information .price-item {
-    font-size: 1.25rem !important;
-    /* 20px on tablet and up */
+    font-size: 1.8rem !important;
+    /* 28.8px on tablet and up */
   }
+
+  /* 20px on tablet and up */
+}
 }
 
 .hidden {
