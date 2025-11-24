@@ -166,6 +166,10 @@
                 -%}
               </a>
             {%- endif -%}
+            <a href="/hediyelikposterler" class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide" style="display: flex; align-items: center; gap: 1rem;">
+              <img src="{{ 'icon-gift.png' | asset_url }}" alt="Hediyelik Posterler" width="140" height="40" style="height: 2.5rem; width: auto; object-fit: contain;">
+              Hediyelik Posterler
+            </a>
             {%- if localization.available_countries or localization.available_languages -%}
               <div class="menu-drawer__localization header-localization">
                 {%- if localization.available_countries and localization.available_countries.size > 1 -%}
