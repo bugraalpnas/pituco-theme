@@ -71,18 +71,18 @@
     }
   }
 
-  /* Centered logo with distributed header elements */
-  @media screen and (min-width: 990px) {
+  /* Centered logo for mobile and tablet only */
+  @media screen and (max-width: 989px) {
     .header {
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      gap: 2rem;
+      gap: 1rem;
     }
 
     .header__heading {
       grid-column: 2;
-      margin: 0;
+      justify-self: center;
     }
 
     .header__icons {
@@ -93,14 +93,6 @@
     header-drawer {
       grid-column: 1;
       justify-self: start;
-    }
-  }
-
-  @media screen and (max-width: 989px) {
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
   }
 </style>
