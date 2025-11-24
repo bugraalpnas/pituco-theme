@@ -3742,8 +3742,9 @@ body:not(.template-index) .card-wrapper {
 }
 
 .card__media {
-  width: 288px !important;
-  height: 432px !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 2 / 3 !important;
 }
 
 .card__media img {
