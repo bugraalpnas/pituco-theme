@@ -63,6 +63,7 @@
         "feature_image_dqrd4w": {
           "type": "feature_image",
           "settings": {
+            "image": "shopify://shop_images/1.png",
             "title": "Premium Baskı Kağıdı",
             "text": "300 gsm premium mat kağıt kullanarak uzun ömürlü ve canlı renkler sunuyoruz."
           }
@@ -70,6 +71,7 @@
         "feature_image_7HCVwk": {
           "type": "feature_image",
           "settings": {
+            "image": "shopify://shop_images/2.png",
             "title": "Kaliteli Çerçeveler",
             "text": "Doğal ahşap ve modern metal çerçeve seçenekleri ile dekorasyonunuza uyum sağlar."
           }
@@ -77,6 +79,7 @@
         "feature_image_rhxrH4": {
           "type": "feature_image",
           "settings": {
+            "image": "shopify://shop_images/3.png",
             "title": "Profesyonel Detay",
             "text": "Her poster özenle paketlenir ve hasarsız teslim garantisi ile gönderilir."
           }
