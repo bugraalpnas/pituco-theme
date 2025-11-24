@@ -75,7 +75,7 @@
   .poster-info__grid-checks {
     display: grid;
     gap: 2rem;
-    max-width: 56rem; /* max-w-4xl */
+    max-width: 100%; /* Allow full width */
     margin: 0 auto;
   }
 
@@ -85,36 +85,38 @@
     }
   }
 
-  .poster-info__check-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  @media screen and (min-width: 990px) {
+    .poster-info__grid-checks {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   .poster-info__check-item {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
   .poster-info__check-icon {
     color: rgb(var(--color-button));
     flex-shrink: 0;
     margin-top: 0.25rem;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem; /* Increased size */
+    height: 2rem; /* Increased size */
   }
 
   .poster-info__check-title {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
+    font-weight: 700;
+    font-size: 1.25rem; /* Increased to 20px */
+    margin-bottom: 0.5rem;
     display: block;
   }
 
   .poster-info__check-text {
-    font-size: 0.875rem; /* text-sm */
-    color: rgba(var(--color-foreground), 0.65);
+    font-size: 1rem; /* Increased to 16px */
+    color: rgba(var(--color-foreground), 0.75);
     margin: 0;
+    line-height: 1.5;
   }
 {%- endstyle -%}
 
@@ -144,20 +146,11 @@
     </div>
 
     <div class="poster-info__grid-checks">
-      <div class="poster-info__check-column">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'feature_check' and forloop.index <= 2 -%}
-             {%- render 'poster-info-check-item', block: block -%}
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-      <div class="poster-info__check-column">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'feature_check' and forloop.index > 2 -%}
-             {%- render 'poster-info-check-item', block: block -%}
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'feature_check' -%}
+            {%- render 'poster-info-check-item', block: block -%}
+        {%- endif -%}
+      {%- endfor -%}
     </div>
   </div>
 </div>
