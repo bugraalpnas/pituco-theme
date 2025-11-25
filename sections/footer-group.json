@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -16,7 +25,9 @@
             "link_3_text": "Çok Satanlar",
             "link_3_url": "/collections/cok-satanlar",
             "link_4_text": "Hediyelik Posterler",
-            "link_4_url": "/hediyelikposterler"
+            "link_4_url": "/hediyelikposterler",
+            "link_5_text": "",
+            "link_5_url": ""
           }
         },
         "bilgi": {
@@ -30,7 +41,9 @@
             "link_3_text": "Sıkça Sorulan Sorular",
             "link_3_url": "/pages/sss",
             "link_4_text": "Kargo & Ödeme",
-            "link_4_url": "/pages/kargo-odeme"
+            "link_4_url": "/pages/kargo-odeme",
+            "link_5_text": "",
+            "link_5_url": ""
           }
         },
         "yasal": {
@@ -44,7 +57,9 @@
             "link_3_text": "İade Politikası",
             "link_3_url": "/policies/refund-policy",
             "link_4_text": "Kargo Politikası",
-            "link_4_url": "/policies/shipping-policy"
+            "link_4_url": "/policies/shipping-policy",
+            "link_5_text": "",
+            "link_5_url": ""
           }
         }
       },
@@ -56,9 +71,14 @@
       "settings": {
         "color_scheme": "scheme-1",
         "custom_background_color": "#f4f4ec",
+        "footer_logo": "shopify://shop_images/Kurumsal_Kimlik-01.png",
         "logo_width": 100,
         "show_social": true,
-        "payment_heading": "Ödeme Yöntemleri:"
+        "payment_heading": "Ödeme Yöntemleri:",
+        "payment_icon_1": "shopify://shop_images/card.png",
+        "payment_icon_2": "shopify://shop_images/visa.png",
+        "payment_icon_3": "shopify://shop_images/TROY_Logo.png",
+        "copyright_text": ""
       }
     }
   },
