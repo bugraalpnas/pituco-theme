@@ -562,7 +562,8 @@
         // Mobile Logic: Always show unless footer is visible
         
         // Toggle scrolled-past-header class for color changes
-        if (scrollTop > this.headerBounds.bottom) {
+        const headerBottom = (this.headerBounds && this.headerBounds.bottom) ? this.headerBounds.bottom : (this.header.offsetHeight || 50);
+        if (scrollTop > headerBottom) {
           this.header.classList.add('scrolled-past-header');
         } else {
           this.header.classList.remove('scrolled-past-header');
