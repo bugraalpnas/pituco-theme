@@ -72,12 +72,11 @@
 
       {%- for block in section.blocks -%}
         <div class="footer__column" {{ block.shopify_attributes }}>
-          <details>
-            <summary class="footer__heading">
+            <h3 class="footer__heading" onclick="toggleFooter(this)">
               {%- if block.settings.heading != blank -%}
                 {{ block.settings.heading }}
               {%- endif -%}
-            </summary>
+            </h3>
             <ul class="footer__list list-unstyled" role="list">
               {%- for i in (1..5) -%}
                 {%- capture link_text_key -%}link_{{ i }}_text{%- endcapture -%}
@@ -90,7 +89,6 @@
                 {%- endif -%}
               {%- endfor -%}
             </ul>
-          </details>
         </div>
       {%- endfor -%}
     </div>
@@ -130,6 +128,14 @@
     </div>
   </div>
 </footer>
+
+<script>
+  function toggleFooter(heading) {
+    if (window.innerWidth >= 990) return; // Disable on desktop
+    const column = heading.parentElement;
+    column.classList.toggle('active');
+  }
+</script>
 
 {% schema %}
 {
