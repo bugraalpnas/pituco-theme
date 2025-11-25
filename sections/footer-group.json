@@ -1,60 +1,53 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "newsletter_E3tDD3": {
-      "type": "newsletter",
+    "footer": {
+      "type": "footer",
       "blocks": {
-        "heading_TqRWXM": {
-          "type": "heading",
+        "logo_social": {
+          "type": "logo_social",
           "settings": {
-            "heading": "E-posta listemize kaydolun",
-            "heading_size": "h1"
+            "logo_width": 120,
+            "show_social": true
           }
         },
-        "paragraph_UP3NWV": {
-          "type": "paragraph",
+        "menu_1": {
+          "type": "link_list",
           "settings": {
-            "text": "<p>Yeni koleksiyonlar ve özel tekliflerden ilk siz haberdar olun.</p>"
+            "heading": "KATALOG"
           }
         },
-        "email_form_Tn3aLJ": {
-          "type": "email_form",
-          "settings": {}
+        "menu_2": {
+          "type": "link_list",
+          "settings": {
+            "heading": "BİLGİ"
+          }
+        },
+        "menu_3": {
+          "type": "link_list",
+          "settings": {
+            "heading": "YASAL POLİTİKALAR"
+          }
         }
       },
       "block_order": [
-        "heading_TqRWXM",
-        "paragraph_UP3NWV",
-        "email_form_Tn3aLJ"
+        "logo_social",
+        "menu_1",
+        "menu_2",
+        "menu_3"
       ],
-      "name": "t:sections.newsletter.presets.name",
-      "settings": {
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "footer": {
-      "type": "footer",
       "settings": {
         "color_scheme": "scheme-1",
-        "custom_background_color": "#f4f4ec"
+        "custom_background_color": "#f4f4ec",
+        "text_color": "#ffffff",
+        "heading_size": 19,
+        "text_size": 17,
+        "payment_enable": true
       }
     }
   },
   "order": [
-    "newsletter_E3tDD3",
     "footer"
   ]
 }
