@@ -5,7 +5,8 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-1",
+        "custom_background_color": "#f4f4ec"
       }
     }
   },

@@ -93,7 +93,22 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_color",
+      "label": "Custom Background Color",
+      "default": "#f4f4ec"
     }
   ]
 }
 {% endschema %}
+
+{%- if section.settings.custom_background_color != blank -%}
+  <style>
+    .footer.color-{{ section.settings.color_scheme }} {
+      background-color: {{ section.settings.custom_background_color }};
+      --color-background: {{ section.settings.custom_background_color.red }}, {{ section.settings.custom_background_color.green }}, {{ section.settings.custom_background_color.blue }};
+    }
+  </style>
+{%- endif -%}
