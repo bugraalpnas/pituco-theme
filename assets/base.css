@@ -3604,3 +3604,48 @@ body:not(.template-index) .card-wrapper {
     aspect-ratio: 288/432;
   }
 }
+
+/* Header Navigation Horizontal Scrolling */
+.header-menu-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.header__inline-menu .list-menu--inline {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+  padding-bottom: 0;
+  /* Remove potential padding causing scrollbar issues */
+}
+
+.header__inline-menu .list-menu--inline::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari/Opera */
+}
+
+.header-menu-arrow {
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  color: rgba(var(--color-foreground), 0.75);
+  flex-shrink: 0;
+  /* Prevent arrow from shrinking */
+}
+
+.header-menu-arrow .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Ensure list items don't wrap text */
+.header__inline-menu .list-menu__item {
+  white-space: nowrap;
+}

@@ -6,6 +6,7 @@
 {% endcomment %}
 
 <nav class="header__inline-menu">
+<div class="header-menu-container">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
       <li>
@@ -100,4 +101,8 @@
       </li>
     {%- endfor -%}
   </ul>
+  <div class="header-menu-arrow">
+    {{ 'icon-arrow.svg' | inline_asset_content }}
+  </div>
+</div>
 </nav>
