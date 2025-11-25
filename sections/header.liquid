@@ -93,6 +93,43 @@
     display: block;
   }
 
+  /* Header Text & Icon Colors - Initial (Black) */
+  .header__icon,
+  .list-menu__item,
+  .header__menu-item,
+  .header__active-menu-item {
+    color: #000000;
+  }
+
+  .header__icon .icon,
+  .header__icon .svg-wrapper > svg {
+    fill: #000000;
+    color: #000000;
+  }
+  
+  /* Header Text & Icon Colors - Scrolled (Off-white) */
+  .section-header.scrolled-past-header .header__icon,
+  .section-header.scrolled-past-header .list-menu__item,
+  .section-header.scrolled-past-header .header__menu-item,
+  .section-header.scrolled-past-header .header__active-menu-item {
+    color: #f4f4ec;
+    transition: color 0.3s ease;
+  }
+
+  .section-header.scrolled-past-header .header__icon .icon,
+  .section-header.scrolled-past-header .header__icon .svg-wrapper > svg {
+    fill: #f4f4ec;
+    color: #f4f4ec;
+    transition: fill 0.3s ease, color 0.3s ease;
+  }
+
+  /* Ensure header is fully visible when scrolled */
+  .section-header.scrolled-past-header {
+    transform: translateY(0) !important;
+    top: 0 !important;
+    opacity: 1 !important;
+  }
+
   /* Centered logo for mobile and tablet only */
   @media screen and (max-width: 989px) {
     .header {
