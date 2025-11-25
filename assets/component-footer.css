@@ -170,15 +170,207 @@
         grid-column: 1;
     }
 
-    .footer__content-bottom {
+    .footer {
+        background-color: #5c4033;
+        color: #e8d5c4;
+        padding: 4rem 0 2rem;
+        margin-top: 6rem;
+    }
+
+    .footer__content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .footer__content-top {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(232, 213, 196, 0.2);
+    }
+
+    .footer__column {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+    }
+
+    .footer__column--logo {
+        gap: 1.5rem;
+    }
+
+    .footer__logo {
+        width: 120px;
+        height: auto;
+    }
+
+    .footer__social {
+        display: flex;
         gap: 1rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer__social .list-social__item {
+        display: flex;
+    }
+
+    .footer__social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: rgba(232, 213, 196, 0.1);
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+
+    .footer__social a:hover {
+        background-color: rgba(232, 213, 196, 0.2);
+    }
+
+    .footer__social svg {
+        width: 18px;
+        height: 18px;
+        fill: #e8d5c4;
+    }
+
+    .footer__heading {
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        margin: 0 0 1rem 0;
+        color: #e8d5c4;
+    }
+
+    .footer__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .footer__link {
+        color: rgba(232, 213, 196, 0.8);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+    }
+
+    .footer__link:hover {
+        color: #e8d5c4;
+    }
+
+    .footer__content-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
     }
 
     .footer__payment {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
     }
-}
+
+    .footer__payment-text {
+        font-size: 0.85rem;
+        color: rgba(232, 213, 196, 0.7);
+    }
+
+    .footer__payment-icons {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .icon--payment {
+        height: 24px;
+        width: auto;
+        background: white;
+        border-radius: 4px;
+        padding: 2px;
+    }
+
+    .footer__copyright {
+        font-size: 0.85rem;
+        color: rgba(232, 213, 196, 0.7);
+    }
+
+    .footer__copyright p {
+        margin: 0;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 989px) {
+        .footer__content-top {
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer__column--logo {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media screen and (max-width: 749px) {
+        .footer {
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer__content {
+            padding: 0 1.5rem;
+        }
+
+        .footer__content-top {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer__column--logo {
+            grid-column: 1;
+        }
+
+        .footer__content-bottom {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .footer__payment {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+    }
+
+    /* Desktop Color Overrides */
+    @media screen and (min-width: 990px) {
+        .footer__heading {
+            color: rgb(var(--color-foreground));
+        }
+
+        .footer__link {
+            color: rgba(var(--color-foreground), 0.75);
+        }
+
+        .footer__link:hover {
+            color: rgb(var(--color-foreground));
+        }
+
+        .footer__payment-text,
+        .footer__copyright {
+            color: rgba(var(--color-foreground), 0.55);
+        }
+    }
