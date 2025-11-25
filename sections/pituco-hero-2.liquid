@@ -331,6 +331,17 @@
       padding: 1rem;
       z-index: 100;
       box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease; /* Smooth transition for hide/show */
+    }
+
+    .pituco-hero-buttons.hidden-sticky {
+      transform: translateY(100%); /* Slide down to hide */
+    }
+
+    /* Button 1 Black Style on Mobile/Tablet */
+    .pituco-btn-outline {
+        border-color: #000000 !important;
+        color: #000000 !important;
     }
   }
 
@@ -431,21 +442,10 @@
     align-items: center;
     justify-content: center;
   }
-  /* Mobile adjustments */
-  @media screen and (max-width: 767px) {
-    .pituco-hero-buttons {
-        transition: transform 0.3s ease;
-    }
-    
-    .pituco-hero-buttons.hidden-sticky {
-        transform: translateY(100%);
-    }
 
-    /* Button 1 Black Style on Mobile */
-    .pituco-btn-outline {
-        border-color: #000000 !important;
-        color: #000000 !important;
-    }
+  /* Mobile adjustments (just for specific mobile overrides if needed) */
+  @media screen and (max-width: 767px) {
+     /* Any specific mobile-only styles can go here, but sticky logic is now shared */
   }
 </style>
 
