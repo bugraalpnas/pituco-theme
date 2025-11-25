@@ -276,7 +276,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Daraltılabilir satır",
-            "icon": "paw_print",
+            "icon": "check_mark",
             "row_content": "",
             "page": ""
           }
