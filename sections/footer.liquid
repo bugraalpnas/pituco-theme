@@ -6,19 +6,83 @@
     }
   </style>
 {%- endif -%}
+
+{%- if section.settings.footer_text_color != blank -%}
+  <style>
+    .footer.color-{{ section.settings.color_scheme }} .footer__heading,
+    .footer.color-{{ section.settings.color_scheme }} .footer__link,
+    .footer.color-{{ section.settings.color_scheme }} .footer__copyright,
+    .footer.color-{{ section.settings.color_scheme }} .footer__payment-text,
+    .footer.color-{{ section.settings.color_scheme }} .list-social__item .icon {
+      color: {{ section.settings.footer_text_color }};
+    }
+  </style>
+{%- endif -%}
+
 <link rel="stylesheet" href="{{ 'component-footer.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<style>
+  /* Mobile Dropdown Styles */
+  @media screen and (max-width: 989px) {
+    .footer__column details {
+      border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
+      padding: 1rem 0;
+    }
+    .footer__column summary {
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      padding-right: 2rem;
+      font-weight: bold;
+    }
+    .footer__column summary::-webkit-details-marker {
+      display: none;
+    }
+    .footer__column summary::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .footer__column details[open] summary::after {
+      content: '-';
+    }
+    .footer__column .footer__list {
+      margin-top: 1rem;
+    }
+  }
+
+  /* Desktop Styles (Disable Dropdown) */
+  @media screen and (min-width: 990px) {
+    .footer__column details > summary {
+      pointer-events: none;
+      list-style: none;
+    }
+    .footer__column details > summary::-webkit-details-marker {
+      display: none;
+    }
+    .footer__column details[open] > summary::after {
+      display: none;
+    }
+    /* Ensure content is always visible on desktop even if details is closed (though we force open in HTML) */
+    .footer__column details:not([open]) .footer__list {
+      display: block;
+    }
+  }
+</style>
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient">
   <div class="footer__content page-width">
     <div class="footer__content-top">
       <div class="footer__column footer__column--logo">
         {%- if section.settings.footer_logo != blank -%}
-          <img src="{{ section.settings.footer_logo | image_url: width: section.settings.logo_width_desktop }}" 
+          <img src="{{ section.settings.footer_logo | image_url: width: section.settings.logo_width }}" 
                alt="{{ shop.name }}" 
                class="footer__logo" 
-               style="height: auto;">
+               style="width: {{ section.settings.logo_width }}px; height: auto;">
         {%- else -%}
-          <img src="{{ 'footer-logo-lizard.png' | asset_url }}" alt="{{ shop.name }}" class="footer__logo" style="height: auto;">
+          <img src="{{ 'footer-logo-lizard.png' | asset_url }}" alt="{{ shop.name }}" class="footer__logo" style="width: {{ section.settings.logo_width }}px; height: auto;">
         {%- endif -%}
         
         {%- if section.settings.show_social -%}
@@ -57,21 +121,25 @@
 
       {%- for block in section.blocks -%}
         <div class="footer__column" {{ block.shopify_attributes }}>
-          {%- if block.settings.heading != blank -%}
-            <h3 class="footer__heading">{{ block.settings.heading }}</h3>
-          {%- endif -%}
-          <ul class="footer__list list-unstyled" role="list">
-            {%- for i in (1..5) -%}
-              {%- capture link_text_key -%}link_{{ i }}_text{%- endcapture -%}
-              {%- capture link_url_key -%}link_{{ i }}_url{%- endcapture -%}
-              {%- assign link_text = block.settings[link_text_key] -%}
-              {%- assign link_url = block.settings[link_url_key] -%}
-              
-              {%- if link_text != blank -%}
-                <li><a href="{{ link_url }}" class="footer__link">{{ link_text }}</a></li>
+          <details>
+            <summary class="footer__heading">
+              {%- if block.settings.heading != blank -%}
+                {{ block.settings.heading }}
               {%- endif -%}
-            {%- endfor -%}
-          </ul>
+            </summary>
+            <ul class="footer__list list-unstyled" role="list">
+              {%- for i in (1..5) -%}
+                {%- capture link_text_key -%}link_{{ i }}_text{%- endcapture -%}
+                {%- capture link_url_key -%}link_{{ i }}_url{%- endcapture -%}
+                {%- assign link_text = block.settings[link_text_key] -%}
+                {%- assign link_url = block.settings[link_url_key] -%}
+                
+                {%- if link_text != blank -%}
+                  <li><a href="{{ link_url }}" class="footer__link">{{ link_text }}</a></li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </details>
         </div>
       {%- endfor -%}
     </div>
@@ -127,6 +195,12 @@
       "id": "custom_background_color",
       "label": "Custom Background Color",
       "default": "#f4f4ec"
+    },
+    {
+      "type": "color",
+      "id": "footer_text_color",
+      "label": "Footer Text Color",
+      "default": "#000000"
     },
     {
       "type": "header",
@@ -188,9 +262,22 @@
       "label": "Copyright Text",
       "info": "Leave blank to use default copyright."
     }
+  ],
+  "blocks": [
     {
-      "type": "header",
-      "content": "Logo Settings"
+      "type": "link_column",
+      "name": "Link Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Quick Links"
+        },
+        {
+          "type": "text",
+          "id": "link_1_text",
+          "label": "Link 1 Text"
         },
         {
           "type": "url",

@@ -81,7 +81,7 @@
           "settings": {
             "image": "shopify://shop_images/3.png",
             "title": "Profesyonel Detay",
-            "text": "Her poster özenle paketlenir ve hasarsız teslim garantisi ile gönderilir."
+            "text": "Her poster özenle paketlenir ve hasarsızlık için ekstra korumaya alınarak gönderilir."
           }
         },
         "feature_check_RjGt77": {
@@ -130,41 +130,66 @@
         "padding_bottom": 80
       }
     },
-    "collection_list_J7r3Qk": {
-      "type": "collection-list",
+    "multicolumn_dx9izg": {
+      "type": "multicolumn",
       "blocks": {
-        "featured_collection_mb4tpU": {
-          "type": "featured_collection",
+        "column_igmxKp": {
+          "type": "column",
           "settings": {
-            "collection": "personalized"
+            "image": "shopify://shop_images/Untitled_design_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/personalized"
           }
         },
-        "featured_collection_en8nbT": {
-          "type": "featured_collection",
+        "column_eQfwgm": {
+          "type": "column",
           "settings": {
-            "collection": ""
+            "image": "shopify://shop_images/Untitled_design_2.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
           }
         },
-        "featured_collection_kbmbPe": {
-          "type": "featured_collection",
+        "column_YKmFfk": {
+          "type": "column",
           "settings": {
-            "collection": ""
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_UkpYci": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "featured_collection_mb4tpU",
-        "featured_collection_en8nbT",
-        "featured_collection_kbmbPe"
+        "column_igmxKp",
+        "column_eQfwgm",
+        "column_YKmFfk",
+        "column_UkpYci"
       ],
-      "name": "t:sections.collection-list.presets.name",
+      "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Collections",
+        "title": "",
         "heading_size": "h1",
-        "image_ratio": "square",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
         "color_scheme": "",
-        "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -243,14 +268,77 @@
         "padding_top": 28,
         "padding_bottom": 36
       }
+    },
+    "collapsible_content_fbxXjB": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_7k33g6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Daraltılabilir satır",
+            "icon": "paw_print",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_aLwGqA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Daraltılabilir satır",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_FQayWC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Daraltılabilir satır",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_q3LV4t": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Daraltılabilir satır",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_7k33g6",
+        "collapsible_row_aLwGqA",
+        "collapsible_row_FQayWC",
+        "collapsible_row_q3LV4t"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "SIKÇA SORULAN SORULAR",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-1",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "pituco_hero_JDGN6y",
     "featured_collection",
     "poster_info_gWLPnR",
-    "collection_list_J7r3Qk",
+    "multicolumn_dx9izg",
     "customer_gallery_hgypj7",
-    "featured_collection_tAKc33"
+    "featured_collection_tAKc33",
+    "collapsible_content_fbxXjB"
   ]
 }
