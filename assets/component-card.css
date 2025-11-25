@@ -1,4 +1,4 @@
-.card-wrapper {
+﻿.card-wrapper {
   color: inherit;
   height: 100%;
   position: relative;
@@ -573,20 +573,19 @@
 }
 
 /* Custom Overrides for Pituco */
-.card--card,
-.card--standard .card__inner {
+.card-wrapper,
+.card,
+.card__inner,
+.card__content,
+.card__media {
   border: none !important;
   box-shadow: none !important;
+  outline: none !important;
 }
 
 .card--card:after,
 .card--standard .card__inner:after {
   display: none !important;
-}
-
-.card__media,
-.card__inner {
-  aspect-ratio: 1 / 1 !important;
 }
 
 .card__media .media {
