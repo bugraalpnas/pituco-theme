@@ -683,18 +683,16 @@
         {
           "value": "middle-left",
           "label": "t:sections.header.settings.logo_position.options__1.label"
-        {
-          "value": "center",
-          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
         },
         {
-          "value": "left",
-          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
+          "value": "middle-center",
+          "label": "t:sections.header.settings.logo_position.options__4.label"
         }
       ],
-      "default": "center",
-      "label": "t:sections.header.settings.mobile_logo_position.label"
-    },    
+      "default": "middle-left",
+      "label": "t:sections.header.settings.logo_position.label",
+      "info": "t:sections.header.settings.logo_help.content"
+    },
     {
       "type": "link_list",
       "id": "menu",
@@ -769,31 +767,7 @@
     },
     {
       "type": "header",
-      "content": "Logo Settings"
-    },
-    {
-      "type": "select",
-      "id": "logo_position_desktop",
-      "options": [
-        {
-          "value": "top-left",
-          "label": "Top Left"
-        },
-        {
-          "value": "top-center",
-          "label": "Top Center"
-        },
-        {
-          "value": "middle-left",
-          "label": "Middle Left"
-        },
-        {
-          "value": "middle-center",
-          "label": "Middle Center"
-        }
-      ],
-      "default": "middle-left",
-      "label": "Desktop Logo Position"
+      "content": "Desktop Logo Settings"
     },
     {
       "type": "range",
@@ -811,34 +785,48 @@
     },
     {
       "type": "image_picker",
-      "id": "mobile_logo",
-      "label": "Mobile Logo Image"
+      "id": "mobile_logo_initial",
+      "label": "Mobile Logo (Initial)"
     },
     {
-      "type": "select",
-      "id": "logo_position_mobile",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        }
-      ],
-      "default": "center",
-      "label": "Mobile Logo Position"
+      "type": "image_picker",
+      "id": "mobile_logo_scrolled",
+      "label": "Mobile Logo (Scrolled)"
     },
     {
       "type": "range",
-      "id": "logo_width_mobile",
+      "id": "mobile_logo_width",
       "min": 50,
       "max": 250,
       "step": 5,
       "default": 100,
       "unit": "px",
       "label": "Mobile Logo Width"
+    },
+    {
+      "type": "range",
+      "id": "mobile_logo_scale",
+      "min": 0.5,
+      "max": 2.0,
+      "step": 0.1,
+      "default": 1.0,
+      "label": "Mobile Logo Scale"
+    },
+    {
+      "type": "select",
+      "id": "mobile_logo_position",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        }
+      ],
+      "default": "center",
+      "label": "Mobile Logo Position"
     },
     {
       "type": "header",
