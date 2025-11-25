@@ -101,14 +101,8 @@
       </li>
     {%- endfor -%}
   </ul>
-  <button class="header-menu-arrow" aria-label="Scroll right">
+  <div class="header-menu-arrow">
     {{ 'icon-arrow.svg' | inline_asset_content }}
-  </button>
+  </div>
 </div>
 </nav>
-
-<script>
-  document.querySelector('.header-menu-arrow').addEventListener('click', function() {
-    document.querySelector('.header__inline-menu .list-menu--inline').scrollBy({ left: 200, behavior: 'smooth' });
-  });
-</script>
