@@ -21,56 +21,7 @@
 
 <link rel="stylesheet" href="{{ 'component-footer.css' | asset_url }}" media="print" onload="this.media='all'">
 
-<style>
-  /* Mobile Dropdown Styles */
-  @media screen and (max-width: 989px) {
-    .footer__column details {
-      border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
-      padding: 1rem 0;
-    }
-    .footer__column summary {
-      cursor: pointer;
-      list-style: none;
-      position: relative;
-      padding-right: 2rem;
-      font-weight: bold;
-    }
-    .footer__column summary::-webkit-details-marker {
-      display: none;
-    }
-    .footer__column summary::after {
-      content: '+';
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .footer__column details[open] summary::after {
-      content: '-';
-    }
-    .footer__column .footer__list {
-      margin-top: 1rem;
-    }
-  }
 
-  /* Desktop Styles (Disable Dropdown) */
-  @media screen and (min-width: 990px) {
-    .footer__column details > summary {
-      pointer-events: none;
-      list-style: none;
-    }
-    .footer__column details > summary::-webkit-details-marker {
-      display: none;
-    }
-    .footer__column details[open] > summary::after {
-      display: none;
-    }
-    /* Ensure content is always visible on desktop even if details is closed (though we force open in HTML) */
-    .footer__column details:not([open]) .footer__list {
-      display: block;
-    }
-  }
-</style>
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient">
   <div class="footer__content page-width">
