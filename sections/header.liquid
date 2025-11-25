@@ -153,6 +153,38 @@
       grid-column: 1;
       justify-self: start;
     }
+
+    /* Mobile Header Colors - Scrolled */
+    .section-header.scrolled-past-header .header-wrapper {
+      background-color: {{ section.settings.mobile_bg_scrolled | default: '#f4f4ec' }};
+    }
+    .section-header.scrolled-past-header .header__icon,
+    .section-header.scrolled-past-header .list-menu__item,
+    .section-header.scrolled-past-header .header__menu-item,
+    .section-header.scrolled-past-header .header__active-menu-item {
+      color: {{ section.settings.mobile_text_scrolled | default: '#000000' }};
+    }
+    .section-header.scrolled-past-header .header__icon .icon,
+    .section-header.scrolled-past-header .header__icon .svg-wrapper > svg {
+      fill: {{ section.settings.mobile_text_scrolled | default: '#000000' }};
+      color: {{ section.settings.mobile_text_scrolled | default: '#000000' }};
+    }
+
+    /* Lock Mobile Menu Drawer Colors to Initial State */
+    .menu-drawer {
+      background-color: {{ section.settings.mobile_bg_initial | default: '#000000' }} !important;
+    }
+    .menu-drawer .menu-drawer__menu-item,
+    .menu-drawer .menu-drawer__close-button,
+    .menu-drawer .menu-drawer__utility-links,
+    .menu-drawer .list-social__item .icon {
+      color: {{ section.settings.mobile_text_initial | default: '#f4f4ec' }} !important;
+    }
+    .menu-drawer .icon,
+    .menu-drawer .svg-wrapper > svg {
+      fill: {{ section.settings.mobile_text_initial | default: '#f4f4ec' }} !important;
+      color: {{ section.settings.mobile_text_initial | default: '#f4f4ec' }} !important;
+    }
   }
 </style>
 
@@ -228,20 +260,50 @@
       {%- endif -%}
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
               <div class="header__heading-logo-wrapper">
+                {%- assign logo_width = section.settings.logo_width_desktop | default: 100 -%}
+                {%- assign mobile_logo_width = section.settings.logo_width_mobile | default: 100 -%}
+                
+                <!-- Desktop Logo -->
                 <img
                   src="{{ 'pituco-logo-initial.png' | asset_url }}"
                   alt="{{ shop.name | escape }}"
-                  style="width: {{ settings.logo_width }}px; height: auto;"
-                  width="{{ settings.logo_width }}"
-                  class="header__heading-logo logo-initial"
+                  style="width: {{ logo_width }}px; height: auto;"
+                  width="{{ logo_width }}"
+                  class="header__heading-logo logo-initial small-hide"
                 >
                 <img
                   src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
                   alt="{{ shop.name | escape }}"
-                  style="width: {{ settings.logo_width }}px; height: auto;"
-                  width="{{ settings.logo_width }}"
-                  class="header__heading-logo logo-scrolled"
+                  style="width: {{ logo_width }}px; height: auto;"
+                  width="{{ logo_width }}"
+                  class="header__heading-logo logo-scrolled small-hide"
                 >
+
+                <!-- Mobile Logo -->
+                {%- if section.settings.mobile_logo != blank -%}
+                  <img
+                    src="{{ section.settings.mobile_logo | image_url: width: mobile_logo_width }}"
+                    alt="{{ shop.name | escape }}"
+                    style="width: {{ mobile_logo_width }}px; height: auto;"
+                    width="{{ mobile_logo_width }}"
+                    class="header__heading-logo medium-hide large-up-hide"
+                  >
+                {%- else -%}
+                   <img
+                    src="{{ 'pituco-logo-initial.png' | asset_url }}"
+                    alt="{{ shop.name | escape }}"
+                    style="width: {{ mobile_logo_width }}px; height: auto;"
+                    width="{{ mobile_logo_width }}"
+                    class="header__heading-logo logo-initial medium-hide large-up-hide"
+                  >
+                  <img
+                    src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
+                    alt="{{ shop.name | escape }}"
+                    style="width: {{ mobile_logo_width }}px; height: auto;"
+                    width="{{ mobile_logo_width }}"
+                    class="header__heading-logo logo-scrolled medium-hide large-up-hide"
+                  >
+                {%- endif -%}
               </div>
           </a>
       {%- if request.page_type == 'index' -%}
@@ -265,20 +327,50 @@
       {%- endif -%}
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
               <div class="header__heading-logo-wrapper">
+                {%- assign logo_width = section.settings.logo_width_desktop | default: 100 -%}
+                {%- assign mobile_logo_width = section.settings.logo_width_mobile | default: 100 -%}
+                
+                <!-- Desktop Logo -->
                 <img
                   src="{{ 'pituco-logo-initial.png' | asset_url }}"
                   alt="{{ shop.name | escape }}"
-                  style="width: {{ settings.logo_width }}px; height: auto;"
-                  width="{{ settings.logo_width }}"
-                  class="header__heading-logo logo-initial"
+                  style="width: {{ logo_width }}px; height: auto;"
+                  width="{{ logo_width }}"
+                  class="header__heading-logo logo-initial small-hide"
                 >
                 <img
                   src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
                   alt="{{ shop.name | escape }}"
-                  style="width: {{ settings.logo_width }}px; height: auto;"
-                  width="{{ settings.logo_width }}"
-                  class="header__heading-logo logo-scrolled"
+                  style="width: {{ logo_width }}px; height: auto;"
+                  width="{{ logo_width }}"
+                  class="header__heading-logo logo-scrolled small-hide"
                 >
+
+                <!-- Mobile Logo -->
+                {%- if section.settings.mobile_logo != blank -%}
+                  <img
+                    src="{{ section.settings.mobile_logo | image_url: width: mobile_logo_width }}"
+                    alt="{{ shop.name | escape }}"
+                    style="width: {{ mobile_logo_width }}px; height: auto;"
+                    width="{{ mobile_logo_width }}"
+                    class="header__heading-logo medium-hide large-up-hide"
+                  >
+                {%- else -%}
+                   <img
+                    src="{{ 'pituco-logo-initial.png' | asset_url }}"
+                    alt="{{ shop.name | escape }}"
+                    style="width: {{ mobile_logo_width }}px; height: auto;"
+                    width="{{ mobile_logo_width }}"
+                    class="header__heading-logo logo-initial medium-hide large-up-hide"
+                  >
+                  <img
+                    src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
+                    alt="{{ shop.name | escape }}"
+                    style="width: {{ mobile_logo_width }}px; height: auto;"
+                    width="{{ mobile_logo_width }}"
+                    class="header__heading-logo logo-scrolled medium-hide large-up-hide"
+                  >
+                {%- endif -%}
               </div>
           </a>
       {%- if request.page_type == 'index' -%}
@@ -657,6 +749,79 @@
       "id": "menu_color_scheme",
       "label": "t:sections.header.settings.menu_color_scheme.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Logo Settings"
+    },
+    {
+      "type": "select",
+      "id": "logo_position_desktop",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-center",
+          "label": "Top Center"
+        },
+        {
+          "value": "middle-left",
+          "label": "Middle Left"
+        },
+        {
+          "value": "middle-center",
+          "label": "Middle Center"
+        }
+      ],
+      "default": "middle-left",
+      "label": "Desktop Logo Position"
+    },
+    {
+      "type": "range",
+      "id": "logo_width_desktop",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "default": 100,
+      "unit": "px",
+      "label": "Desktop Logo Width"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Logo Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_logo",
+      "label": "Mobile Logo Image"
+    },
+    {
+      "type": "select",
+      "id": "logo_position_mobile",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center",
+      "label": "Mobile Logo Position"
+    },
+    {
+      "type": "range",
+      "id": "logo_width_mobile",
+      "min": 50,
+      "max": 250,
+      "step": 5,
+      "default": 100,
+      "unit": "px",
+      "label": "Mobile Logo Width"
     },
     {
       "type": "header",

@@ -13,12 +13,12 @@
     <div class="footer__content-top">
       <div class="footer__column footer__column--logo">
         {%- if section.settings.footer_logo != blank -%}
-          <img src="{{ section.settings.footer_logo | image_url: width: section.settings.logo_width }}" 
+          <img src="{{ section.settings.footer_logo | image_url: width: section.settings.logo_width_desktop }}" 
                alt="{{ shop.name }}" 
                class="footer__logo" 
-               style="width: {{ section.settings.logo_width }}px; height: auto;">
+               style="height: auto;">
         {%- else -%}
-          <img src="{{ 'footer-logo-lizard.png' | asset_url }}" alt="{{ shop.name }}" class="footer__logo" style="width: {{ section.settings.logo_width }}px; height: auto;">
+          <img src="{{ 'footer-logo-lizard.png' | asset_url }}" alt="{{ shop.name }}" class="footer__logo" style="height: auto;">
         {%- endif -%}
         
         {%- if section.settings.show_social -%}
@@ -188,22 +188,9 @@
       "label": "Copyright Text",
       "info": "Leave blank to use default copyright."
     }
-  ],
-  "blocks": [
     {
-      "type": "link_column",
-      "name": "Link Column",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Quick Links"
-        },
-        {
-          "type": "text",
-          "id": "link_1_text",
-          "label": "Link 1 Text"
+      "type": "header",
+      "content": "Logo Settings"
         },
         {
           "type": "url",
