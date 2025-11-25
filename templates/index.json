@@ -39,10 +39,10 @@
         "description": "",
         "show_description": true,
         "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
+        "columns_desktop": 5,
+        "enable_desktop_slider": true,
         "full_width": false,
-        "show_view_all": false,
+        "show_view_all": true,
         "view_all_style": "solid",
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",
@@ -51,8 +51,8 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
         "padding_top": 28,
         "padding_bottom": 36
       }
@@ -130,30 +130,42 @@
         "padding_bottom": 80
       }
     },
-    "featured_collection_9FE6cQ": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+    "collection_list_J7r3Qk": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_mb4tpU": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "personalized"
+          }
+        },
+        "featured_collection_en8nbT": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_kbmbPe": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_mb4tpU",
+        "featured_collection_en8nbT",
+        "featured_collection_kbmbPe"
+      ],
+      "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "collection": "personalized",
-        "products_to_show": 4,
-        "title": "Kişiselleştirilebilir Posterler",
+        "title": "Collections",
         "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
+        "image_ratio": "square",
+        "columns_desktop": 3,
         "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
+        "show_view_all": false,
+        "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
@@ -203,13 +215,43 @@
         "padding_top": 64,
         "padding_bottom": 64
       }
+    },
+    "featured_collection_9FE6cQ": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "personalized",
+        "products_to_show": 4,
+        "title": "Kişiselleştirilebilir Posterler",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "pituco_hero_JDGN6y",
     "featured_collection",
     "poster_info_gWLPnR",
-    "featured_collection_9FE6cQ",
-    "customer_gallery_hgypj7"
+    "collection_list_J7r3Qk",
+    "customer_gallery_hgypj7",
+    "featured_collection_9FE6cQ"
   ]
 }
