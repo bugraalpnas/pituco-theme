@@ -427,4 +427,41 @@
     align-items: center;
     justify-content: center;
   }
+  /* Mobile adjustments */
+  @media screen and (max-width: 767px) {
+    .pituco-hero-buttons {
+        transition: transform 0.3s ease;
+    }
+    
+    .pituco-hero-buttons.hidden-sticky {
+        transform: translateY(100%);
+    }
+
+    /* Button 1 White Style on Mobile */
+    .pituco-btn-outline {
+        border-color: #ffffff !important;
+        color: #ffffff !important;
+    }
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth < 768) {
+      const buttons = document.querySelector('.pituco-hero-buttons');
+      const footer = document.querySelector('footer') || document.querySelector('.section-footer') || document.querySelector('#shopify-section-footer');
+      
+      if (buttons && footer) {
+        window.addEventListener('scroll', () => {
+          const footerRect = footer.getBoundingClientRect();
+          // If footer top is visible in viewport (or close to it)
+          if (footerRect.top < window.innerHeight) {
+            buttons.classList.add('hidden-sticky');
+          } else {
+            buttons.classList.remove('hidden-sticky');
+          }
+        });
+      }
+    }
+  });
+</script>
