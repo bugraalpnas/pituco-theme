@@ -4,6 +4,21 @@
       background-color: {{ section.settings.custom_background_color }};
       --color-background: {{ section.settings.custom_background_color.red }}, {{ section.settings.custom_background_color.green }}, {{ section.settings.custom_background_color.blue }};
     }
+    .footer__heading,
+    .footer__link,
+    .footer__copyright,
+    .footer__payment-text,
+    .footer__payment-text + .icon {
+      color: #ffffff !important;
+    }
+    .footer__heading {
+      font-size: 1.2rem !important;
+    }
+    .footer__link,
+    .footer__copyright,
+    .footer__payment-text {
+      font-size: 1.1rem !important;
+    }
   </style>
 {%- endif -%}
 <link rel="stylesheet" href="{{ 'component-footer.css' | asset_url }}" media="print" onload="this.media='all'">
