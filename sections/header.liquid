@@ -71,6 +71,28 @@
     }
   }
 
+  /* Header Scroll Effects */
+  .header-wrapper {
+    background-color: #f4f4ec;
+    transition: background-color 0.3s ease;
+  }
+
+  .section-header.scrolled-past-header .header-wrapper {
+    background-color: #000000;
+  }
+
+  .header__heading-logo.logo-scrolled {
+    display: none;
+  }
+
+  .section-header.scrolled-past-header .header__heading-logo.logo-initial {
+    display: none;
+  }
+
+  .section-header.scrolled-past-header .header__heading-logo.logo-scrolled {
+    display: block;
+  }
+
   /* Centered logo for mobile and tablet only */
   @media screen and (max-width: 989px) {
     .header {
@@ -170,11 +192,18 @@
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
               <div class="header__heading-logo-wrapper">
                 <img
-                  src="{{ 'pituco-logo.png' | asset_url }}"
+                  src="{{ 'pituco-logo-initial.png' | asset_url }}"
                   alt="{{ shop.name | escape }}"
                   style="width: {{ settings.logo_width }}px; height: auto;"
                   width="{{ settings.logo_width }}"
-                  class="header__heading-logo"
+                  class="header__heading-logo logo-initial"
+                >
+                <img
+                  src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
+                  alt="{{ shop.name | escape }}"
+                  style="width: {{ settings.logo_width }}px; height: auto;"
+                  width="{{ settings.logo_width }}"
+                  class="header__heading-logo logo-scrolled"
                 >
               </div>
           </a>
@@ -200,11 +229,18 @@
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
               <div class="header__heading-logo-wrapper">
                 <img
-                  src="{{ 'pituco-logo.png' | asset_url }}"
+                  src="{{ 'pituco-logo-initial.png' | asset_url }}"
                   alt="{{ shop.name | escape }}"
                   style="width: {{ settings.logo_width }}px; height: auto;"
                   width="{{ settings.logo_width }}"
-                  class="header__heading-logo"
+                  class="header__heading-logo logo-initial"
+                >
+                <img
+                  src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
+                  alt="{{ shop.name | escape }}"
+                  style="width: {{ settings.logo_width }}px; height: auto;"
+                  width="{{ settings.logo_width }}"
+                  class="header__heading-logo logo-scrolled"
                 >
               </div>
           </a>
