@@ -560,6 +560,14 @@
 
       if (isMobile) {
         // Mobile Logic: Always show unless footer is visible
+        
+        // Toggle scrolled-past-header class for color changes
+        if (scrollTop > this.headerBounds.bottom) {
+          this.header.classList.add('scrolled-past-header');
+        } else {
+          this.header.classList.remove('scrolled-past-header');
+        }
+
         const footer = document.querySelector('.footer');
         if (footer) {
           const footerRect = footer.getBoundingClientRect();
