@@ -1,4 +1,64 @@
-        "payment_enable": true
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "katalog": {
+          "type": "link_column",
+          "settings": {
+            "heading": "KATALOG",
+            "link_1_text": "Tüm Ürünler",
+            "link_1_url": "/collections/all",
+            "link_2_text": "Yeni Gelenler",
+            "link_2_url": "/collections/yeni-gelenler",
+            "link_3_text": "Çok Satanlar",
+            "link_3_url": "/collections/cok-satanlar",
+            "link_4_text": "Hediyelik Posterler",
+            "link_4_url": "/hediyelikposterler"
+          }
+        },
+        "bilgi": {
+          "type": "link_column",
+          "settings": {
+            "heading": "BİLGİ",
+            "link_1_text": "Hakkımızda",
+            "link_1_url": "/pages/hakkimizda",
+            "link_2_text": "İletişim",
+            "link_2_url": "/pages/iletisim",
+            "link_3_text": "Sıkça Sorulan Sorular",
+            "link_3_url": "/pages/sss",
+            "link_4_text": "Kargo & Ödeme",
+            "link_4_url": "/pages/kargo-odeme"
+          }
+        },
+        "yasal": {
+          "type": "link_column",
+          "settings": {
+            "heading": "YASAL POLİTİKALAR",
+            "link_1_text": "Gizlilik Politikası",
+            "link_1_url": "/policies/privacy-policy",
+            "link_2_text": "Kullanım Koşulları",
+            "link_2_url": "/policies/terms-of-service",
+            "link_3_text": "İade Politikası",
+            "link_3_url": "/policies/refund-policy",
+            "link_4_text": "Kargo Politikası",
+            "link_4_url": "/policies/shipping-policy"
+          }
+        }
+      },
+      "block_order": [
+        "katalog",
+        "bilgi",
+        "yasal"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "custom_background_color": "#f4f4ec",
+        "logo_width": 100,
+        "show_social": true,
+        "payment_heading": "Ödeme Yöntemleri:"
       }
     }
   },
