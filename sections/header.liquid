@@ -73,12 +73,12 @@
 
   /* Header Scroll Effects */
   .header-wrapper {
-    background-color: #f4f4ec;
+    background-color: #000000; /* Initial background (Dark) */
     transition: background-color 0.3s ease;
   }
 
   .section-header.scrolled-past-header .header-wrapper {
-    background-color: #000000;
+    background-color: #f4f4ec; /* Scrolled background (Light) */
   }
 
   .header__heading-logo.logo-scrolled {
@@ -93,33 +93,33 @@
     display: block;
   }
 
-  /* Header Text & Icon Colors - Initial (Black) */
+  /* Header Text & Icon Colors - Initial (White) */
   .header__icon,
   .list-menu__item,
   .header__menu-item,
   .header__active-menu-item {
-    color: #000000;
+    color: #f4f4ec;
   }
 
   .header__icon .icon,
   .header__icon .svg-wrapper > svg {
-    fill: #000000;
-    color: #000000;
+    fill: #f4f4ec;
+    color: #f4f4ec;
   }
   
-  /* Header Text & Icon Colors - Scrolled (Off-white) */
+  /* Header Text & Icon Colors - Scrolled (Black) */
   .section-header.scrolled-past-header .header__icon,
   .section-header.scrolled-past-header .list-menu__item,
   .section-header.scrolled-past-header .header__menu-item,
   .section-header.scrolled-past-header .header__active-menu-item {
-    color: #f4f4ec;
+    color: #000000;
     transition: color 0.3s ease;
   }
 
   .section-header.scrolled-past-header .header__icon .icon,
   .section-header.scrolled-past-header .header__icon .svg-wrapper > svg {
-    fill: #f4f4ec;
-    color: #f4f4ec;
+    fill: #000000;
+    color: #000000;
     transition: fill 0.3s ease, color 0.3s ease;
   }
 
@@ -134,7 +134,7 @@
   @media screen and (max-width: 989px) {
     .header {
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: 1fr auto 1fr; /* Distribute space evenly to center logo */
       align-items: center;
       gap: 1rem;
     }
