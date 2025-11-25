@@ -315,15 +315,6 @@
                     width="{{ mobile_logo_width }}"
                     class="header__heading-logo mobile-logo-initial medium-hide large-up-hide"
                   >
-                {%- else -%}
-                   <!-- Fallback if no initial mobile logo selected -->
-                   <img
-                    src="{{ 'pituco-logo-initial.png' | asset_url }}"
-                    alt="{{ shop.name | escape }}"
-                    style="width: {{ mobile_logo_width }}px; height: auto;"
-                    width="{{ mobile_logo_width }}"
-                    class="header__heading-logo mobile-logo-initial medium-hide large-up-hide"
-                  >
                 {%- endif -%}
 
                 {%- if section.settings.mobile_logo_scrolled != blank -%}
