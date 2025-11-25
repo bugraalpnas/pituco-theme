@@ -25,7 +25,6 @@
     font-size: 2.25rem; /* text-4xl */
     font-weight: 700;
     margin-bottom: 1rem;
-    padding: 0 1rem; /* Added padding */
   }
 
   .poster-info__text {
@@ -33,7 +32,6 @@
     color: rgba(var(--color-foreground), 0.65);
     max-width: 42rem;
     margin: 0 auto;
-    padding: 0 1rem; /* Added padding */
   }
 
   .poster-info__grid-images {
@@ -54,7 +52,9 @@
     border-radius: var(--media-radius);
     overflow: hidden;
     margin-bottom: 1rem;
-    width: 100%; /* Full width */
+    max-width: 150px; /* Limit size */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .poster-info__feature-image {
@@ -68,13 +68,11 @@
     font-weight: 600;
     margin-bottom: 0.5rem;
     margin-top: 0;
-    padding: 0 1rem; /* Added padding */
   }
 
   .poster-info__feature-text {
     color: rgba(var(--color-foreground), 0.65);
     margin: 0;
-    padding: 0 1rem; /* Added padding */
   }
 
   .poster-info__grid-checks {
