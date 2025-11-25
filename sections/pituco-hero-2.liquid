@@ -318,16 +318,20 @@
     gap: 0.5rem;
     justify-content: center;
     flex-wrap: wrap;
-    
-    /* Sticky on Mobile */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: white;
-    padding: 1rem;
-    z-index: 100;
-    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+  }
+
+  /* Sticky on Mobile & Tablet (up to 1023px) */
+  @media screen and (max-width: 1023px) {
+    .pituco-hero-buttons {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      padding: 1rem;
+      z-index: 100;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    }
   }
 
   .pituco-btn {
@@ -447,7 +451,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 1024) {
       const buttons = document.querySelector('.pituco-hero-buttons');
       const footer = document.querySelector('footer') || document.querySelector('.section-footer') || document.querySelector('#shopify-section-footer');
       
