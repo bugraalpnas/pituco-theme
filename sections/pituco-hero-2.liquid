@@ -173,7 +173,7 @@
 
   .pituco-hero-container {
     width: 100%;
-    max-width: 1400px; /* Limit content width slightly for readability on huge screens */
+    max-width: 1600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -185,6 +185,34 @@
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Desktop Layout: Side by Side */
+  @media screen and (min-width: 1024px) {
+    .pituco-hero-container {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      padding: 0 2rem;
+    }
+
+    .pituco-hero-content {
+      text-align: left;
+      max-width: 50%;
+      margin: 0;
+      flex: 1;
+    }
+
+    .pituco-hero-media {
+      flex: 1;
+      max-width: 50%;
+    }
+    
+    .pituco-hero-buttons {
+      justify-content: flex-start;
+    }
   }
 
   /* Title Styles */
@@ -205,13 +233,18 @@
 
   @media screen and (min-width: 1024px) {
     .pituco-hero-title {
-      font-size: 5.5rem;
+      font-size: 5rem;
     }
   }
 
   .title-line1, .title-line2, .title-line3 {
     display: inline-block;
     margin: 0 6px;
+  }
+  
+  /* Remove margin from first line if left aligned */
+  @media screen and (min-width: 1024px) {
+    .title-line1 { margin-left: 0; }
   }
 
   .title-line2 {
@@ -284,7 +317,7 @@
   @media screen and (min-width: 768px) {
     .pituco-hero-media {
       grid-template-columns: 1fr 1.2fr 1fr; /* Center item slightly wider */
-      gap: 2rem;
+      gap: 1rem;
     }
   }
 
