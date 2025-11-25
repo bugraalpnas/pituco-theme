@@ -73,6 +73,28 @@
     </div>
     <div class="field">
       <input
+        type="tel"
+        name="customer[note][Cell Phone]"
+        id="RegisterForm-phone"
+        placeholder="{{ 'templates.contact.form.phone' | t }}"
+      >
+      <label for="RegisterForm-phone">
+        {{ 'templates.contact.form.phone' | t }}
+      </label>
+    </div>
+    <div class="field">
+      <input
+        type="text"
+        name="customer[note][Address]"
+        id="RegisterForm-address"
+        placeholder="{{ 'customer.addresses.address1' | t }}"
+      >
+      <label for="RegisterForm-address">
+        {{ 'customer.addresses.address1' | t }}
+      </label>
+    </div>
+    <div class="field">
+      <input
         type="email"
         name="customer[email]"
         id="RegisterForm-email"
@@ -127,11 +149,48 @@
         {{ form.errors.messages.password }}.
       </span>
     {%- endif -%}
+
+    <div class="accepts-marketing">
+      <input type="hidden" name="customer[accepts_marketing]" value="false" />
+      <div class="checkbox-wrapper">
+        <input type="checkbox" name="customer[accepts_marketing]" id="accepts-marketing" value="true" />
+        <label for="accepts-marketing">
+          {{ section.settings.marketing_label }}
+        </label>
+      </div>
+      {%- if section.settings.marketing_incentive != blank -%}
+        <div class="marketing-incentive rte">
+          {{ section.settings.marketing_incentive }}
+        </div>
+      {%- endif -%}
+    </div>
+
     <button>
       {{ 'customer.register.submit' | t }}
     </button>
   {%- endform -%}
 </div>
+
+<style>
+  .accepts-marketing {
+    margin: 1.5rem 0;
+  }
+  .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .checkbox-wrapper input[type="checkbox"] {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: 0;
+  }
+  .marketing-incentive {
+    font-size: 1.4rem;
+    color: rgba(var(--color-foreground), 0.75);
+  }
+</style>
 
 {% schema %}
 {
@@ -160,6 +219,22 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Marketing"
+    },
+    {
+      "type": "text",
+      "id": "marketing_label",
+      "label": "Marketing Checkbox Label",
+      "default": "I want to receive emails about new products and promotions."
+    },
+    {
+      "type": "richtext",
+      "id": "marketing_incentive",
+      "label": "Marketing Incentive Text",
+      "default": "<p>Sign up and get a discount!</p>"
     }
   ]
 }
