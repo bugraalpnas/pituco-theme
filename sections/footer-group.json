@@ -11,42 +11,9 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "newsletter_E3tDD3": {
-      "type": "newsletter",
-      "blocks": {
-        "heading_TqRWXM": {
-          "type": "heading",
-          "settings": {
-            "heading": "E-posta listemize kaydolun",
-            "heading_size": "h1"
-          }
-        },
-        "paragraph_UP3NWV": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Yeni koleksiyonlar ve özel tekliflerden ilk siz haberdar olun.</p>"
-          }
-        },
-        "email_form_Tn3aLJ": {
-          "type": "email_form",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "heading_TqRWXM",
-        "paragraph_UP3NWV",
-        "email_form_Tn3aLJ"
-      ],
-      "name": "t:sections.newsletter.presets.name",
-      "settings": {
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
     "footer": {
       "type": "footer",
+      "custom_css": [],
       "settings": {
         "color_scheme": "scheme-1",
         "custom_background_color": "#f4f4ec"
@@ -54,7 +21,6 @@
     }
   },
   "order": [
-    "newsletter_E3tDD3",
     "footer"
   ]
 }
