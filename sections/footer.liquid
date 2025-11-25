@@ -1,3 +1,11 @@
+{%- if section.settings.custom_background_color != blank -%}
+  <style>
+    .footer.color-{{ section.settings.color_scheme }} {
+      background-color: {{ section.settings.custom_background_color }};
+      --color-background: {{ section.settings.custom_background_color.red }}, {{ section.settings.custom_background_color.green }}, {{ section.settings.custom_background_color.blue }};
+    }
+  </style>
+{%- endif -%}
 <link rel="stylesheet" href="{{ 'component-footer.css' | asset_url }}" media="print" onload="this.media='all'">
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient">
@@ -103,12 +111,3 @@
   ]
 }
 {% endschema %}
-
-{%- if section.settings.custom_background_color != blank -%}
-  <style>
-    .footer.color-{{ section.settings.color_scheme }} {
-      background-color: {{ section.settings.custom_background_color }};
-      --color-background: {{ section.settings.custom_background_color.red }}, {{ section.settings.custom_background_color.green }}, {{ section.settings.custom_background_color.blue }};
-    }
-  </style>
-{%- endif -%}
