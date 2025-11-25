@@ -1,0 +1,337 @@
+{% schema %}
+{
+  "name": "Pituco Hero 2",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Content"
+    },
+    {
+      "type": "text",
+      "id": "title_line1",
+      "label": "Title Line 1",
+      "default": "Stilinizi"
+    },
+    {
+      "type": "text",
+      "id": "title_line2",
+      "label": "Title Line 2 (Pink)",
+      "default": "Duvar Sanatına"
+    },
+    {
+      "type": "text",
+      "id": "title_line3",
+      "label": "Title Line 3",
+      "default": "Dönüştürün"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Fotoğraflarınızla, metinlerinizle ve tarzınızla kişiselleştirilmiş posterler yaratın. Premium kalitede baskılar, kapınıza kadar teslim."
+    },
+    {
+      "type": "text",
+      "id": "button1_text",
+      "label": "Button 1 Text",
+      "default": "Kendi Posterini Oluştur"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "button2_text",
+      "label": "Button 2 Text",
+      "default": "Alışverişe Başla"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Button 2 Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "video",
+      "id": "video_1",
+      "label": "Vertical Video",
+      "info": "Upload a vertical video for the center slot."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color (Pink)",
+      "default": "#D84575"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pituco Hero 2"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="pituco-hero-2" style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }};">
+  <div class="pituco-hero-container">
+    
+    <!-- Text Content -->
+    <div class="pituco-hero-content">
+      <h1 class="pituco-hero-title">
+        <span class="title-line1">{{ section.settings.title_line1 }}</span>
+        <span class="title-line2" style="color: {{ section.settings.accent_color }};">{{ section.settings.title_line2 }}</span>
+        <span class="title-line3">{{ section.settings.title_line3 }}</span>
+      </h1>
+      
+      <p class="pituco-hero-description">{{ section.settings.description }}</p>
+      
+      <div class="pituco-hero-buttons">
+        {% if section.settings.button1_text != blank %}
+          <a href="{{ section.settings.button1_link }}" class="pituco-btn pituco-btn-outline" style="border-color: {{ section.settings.text_color }}; color: {{ section.settings.text_color }};">
+            {{ section.settings.button1_text }}
+          </a>
+        {% endif %}
+        {% if section.settings.button2_text != blank %}
+          <a href="{{ section.settings.button2_link }}" class="pituco-btn pituco-btn-primary" style="background-color: {{ section.settings.accent_color }};">
+            {{ section.settings.button2_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Media Content -->
+    <div class="pituco-hero-media">
+      <div class="media-item image-item">
+        {% if section.settings.image_1 != blank %}
+          {{ section.settings.image_1 | image_url: width: 600 | image_tag: loading: 'lazy', class: 'hero-media-img' }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+
+      <div class="media-item video-item">
+        {% if section.settings.video_1 != blank %}
+          {{ section.settings.video_1 | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'hero-media-video' }}
+        {% else %}
+          <div class="placeholder-video">
+            {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="media-item image-item">
+        {% if section.settings.image_2 != blank %}
+          {{ section.settings.image_2 | image_url: width: 600 | image_tag: loading: 'lazy', class: 'hero-media-img' }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .pituco-hero-2 {
+    width: 100%;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pituco-hero-container {
+    width: 100%;
+    max-width: 1400px; /* Limit content width slightly for readability on huge screens */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .pituco-hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Title Styles */
+  .pituco-hero-title {
+    font-family: serif; 
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .pituco-hero-title {
+      font-size: 4.5rem;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .pituco-hero-title {
+      font-size: 5.5rem;
+    }
+  }
+
+  .title-line1, .title-line2, .title-line3 {
+    display: inline-block;
+    margin: 0 6px;
+  }
+
+  .title-line2 {
+    font-style: italic;
+  }
+
+  /* Description Styles */
+  .pituco-hero-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+  }
+
+  @media screen and (min-width: 768px) {
+    .pituco-hero-description {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Buttons */
+  .pituco-hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .pituco-btn {
+    padding: 14px 28px;
+    border-radius: 50px; /* Rounded pill shape */
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .pituco-btn-outline {
+    background-color: transparent;
+    border: 2px solid currentColor;
+  }
+
+  .pituco-btn-outline:hover {
+    opacity: 0.7;
+  }
+
+  .pituco-btn-primary {
+    border: none;
+    color: #fff;
+  }
+
+  .pituco-btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
+
+  /* Media Grid */
+  .pituco-hero-media {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    .pituco-hero-media {
+      grid-template-columns: 1fr 1.2fr 1fr; /* Center item slightly wider */
+      gap: 2rem;
+    }
+  }
+
+  .media-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    aspect-ratio: 3/4; /* Portrait aspect ratio */
+  }
+  
+  .video-item {
+     aspect-ratio: 9/16; /* Taller for video */
+  }
+
+  .hero-media-img,
+  .hero-media-video,
+  .placeholder-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .placeholder-video {
+    width: 100%;
+    height: 100%;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mobile adjustments */
+  @media screen and (max-width: 767px) {
+    .pituco-hero-media {
+      grid-template-columns: 1fr; /* Stack on mobile */
+      max-width: 400px; /* Limit width on mobile */
+      margin: 0 auto;
+    }
+    
+    .media-item {
+      aspect-ratio: 1/1; /* Square on mobile maybe? Or keep portrait */
+    }
+    
+    .video-item {
+        order: -1; /* Show video first on mobile? Or keep order. Let's keep order. */
+    }
+  }
+</style>
