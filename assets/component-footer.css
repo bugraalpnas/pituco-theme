@@ -1,3 +1,14 @@
+.footer {
+    background-color: #5c4033;
+    color: #e8d5c4;
+    padding: 4rem 0 2rem;
+    margin-top: 6rem;
+}
+
+.footer__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .footer__content-top {
