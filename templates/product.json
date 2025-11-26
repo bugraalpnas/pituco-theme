@@ -78,6 +78,19 @@
             "page": ""
           }
         },
+        "complementary_M7fcMW": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Uygun eşleşmeler",
+            "make_collapsible_row": false,
+            "icon": "price_tag",
+            "product_list_limit": 10,
+            "products_per_page": 1,
+            "pagination_style": "counter",
+            "image_ratio": "square",
+            "enable_quick_add": false
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -96,6 +109,7 @@
         "collapsible-row-1",
         "collapsible-row-2",
         "collapsible-row-3",
+        "complementary_M7fcMW",
         "share"
       ],
       "settings": {
@@ -198,7 +212,7 @@
       "type": "related-products",
       "settings": {
         "heading": "You may also like",
-        "heading_size": "h2",
+        "heading_size": "h0",
         "products_to_show": 4,
         "columns_desktop": 4,
         "columns_mobile": "2",
