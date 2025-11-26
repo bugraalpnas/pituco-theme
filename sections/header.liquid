@@ -173,7 +173,7 @@
     .header__heading-logo.logo-initial,
     .header__heading-logo.logo-scrolled {
         display: none;
-        width: 150px; /* Force width */
+        width: 180px; /* Force width */
         height: auto;
     }
     
@@ -517,44 +517,29 @@
                 <!-- Mobile Logo -->
                 {%- if section.settings.mobile_logo_initial != blank -%}
                   <img
-                    src="{{ section.settings.mobile_logo_initial | image_url: width: 150 }}"
+                    src="{{ section.settings.mobile_logo_initial | image_url: width: 180 }}"
                     alt="{{ shop.name | escape }}"
-                    style="width: 150px; height: auto;"
-                    width="150"
+                    style="width: 180px; height: auto;"
+                    width="180"
                     class="header__heading-logo logo-initial medium-hide large-up-hide"
                   >
                   {%- if section.settings.mobile_logo_scrolled != blank -%}
                     <img
-                      src="{{ section.settings.mobile_logo_scrolled | image_url: width: 150 }}"
+                      src="{{ section.settings.mobile_logo_scrolled | image_url: width: 180 }}"
                       alt="{{ shop.name | escape }}"
-                      style="width: 150px; height: auto;"
-                      width="150"
+                      style="width: 180px; height: auto;"
+                      width="180"
                       class="header__heading-logo logo-scrolled medium-hide large-up-hide"
                     >
                   {%- else -%}
                     <img
                       src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
                       alt="{{ shop.name | escape }}"
-                      style="width: 150px; height: auto;"
-                      width="150"
+                      style="width: 180px; height: auto;"
+                      width="180"
                       class="header__heading-logo logo-scrolled medium-hide large-up-hide"
                     >
                   {%- endif -%}
-                {%- else -%}
-                   <img
-                    src="{{ 'pituco-logo-initial.png' | asset_url }}"
-                    alt="{{ shop.name | escape }}"
-                    style="width: 150px; height: auto;"
-                    width="150"
-                    class="header__heading-logo logo-initial medium-hide large-up-hide"
-                  >
-                  <img
-                    src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
-                    alt="{{ shop.name | escape }}"
-                    style="width: 150px; height: auto;"
-                    width="150"
-                    class="header__heading-logo logo-scrolled medium-hide large-up-hide"
-                  >
                 {%- endif -%}
               </div>
           </a>
