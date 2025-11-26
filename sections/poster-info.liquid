@@ -22,14 +22,15 @@
 
   .poster-info__heading {
     font-family: var(--font-heading-family);
-    font-size: 2.25rem; /* text-4xl */
+    font-size: {{ section.settings.heading_size }}px;
+    color: {{ section.settings.heading_color }};
     font-weight: 700;
     margin-bottom: 1rem;
   }
 
   .poster-info__text {
-    font-size: 1.125rem; /* text-lg */
-    color: rgba(var(--color-foreground), 0.65);
+    font-size: {{ section.settings.text_size }}px;
+    color: {{ section.settings.text_color }};
     max-width: 42rem;
     margin: 0 auto;
   }
@@ -44,50 +45,70 @@
     .poster-info__grid-images {
       grid-template-columns: repeat(3, 1fr);
     }
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  }
+
+  .poster-info__feature {
+    text-align: center;
+  }
+
+  .poster-info__feature-image-wrapper {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .poster-info__feature-image {
+    max-width: 100%;
+    height: auto;
   }
 
   .poster-info__feature-title {
-    font-size: 1.25rem; /* text-xl */
+    font-size: {{ section.settings.feature_title_size }}px;
+    color: {{ section.settings.feature_title_color }};
     font-weight: 600;
     margin-bottom: 0.5rem;
-    margin-top: 0;
-  }
-    }
+    margin-top: 1rem;
   }
 
-  @media screen and (min-width: 990px) {
-    .poster-info__grid-checks {
-      grid-template-columns: repeat(4, 1fr);
-    }
+  .poster-info__feature-text {
+    font-size: {{ section.settings.feature_text_size }}px;
+    color: {{ section.settings.feature_text_color }};
+  }
+
+  .poster-info__grid-checks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
   }
 
   .poster-info__check-item {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
+    flex: 1 1 300px; /* Grow, shrink, base width */
+    max-width: 400px;
+    padding: 0 1rem;
   }
 
   .poster-info__check-icon {
-    color: rgb(var(--color-button));
+    color: {{ section.settings.check_icon_color }};
     flex-shrink: 0;
     margin-top: 0.25rem;
-    width: 2rem; /* Increased size */
-    height: 2rem; /* Increased size */
+    width: 2rem;
+    height: 2rem;
   }
 
   .poster-info__check-title {
     font-weight: 700;
-    font-size: 1.25rem; /* Increased to 20px */
+    font-size: {{ section.settings.check_title_size }}px;
+    color: {{ section.settings.check_title_color }};
     margin-bottom: 0.5rem;
     display: block;
   }
 
   .poster-info__check-text {
-    font-size: 1rem; /* Increased to 16px */
-    color: rgba(var(--color-foreground), 0.75);
+    font-size: {{ section.settings.check_text_size }}px;
+    color: {{ section.settings.check_text_color }};
     margin: 0;
     line-height: 1.5;
   }
@@ -103,10 +124,10 @@
     <div class="poster-info__grid-images">
       {%- for block in section.blocks -%}
         {%- if block.type == 'feature_image' -%}
-          <div class="poster-info__feature" style="text-align: center;">
-            <div class="poster-info__feature-image-wrapper" style="margin: 0 auto; max-width: 100%;">
+          <div class="poster-info__feature">
+            <div class="poster-info__feature-image-wrapper">
               {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 500 | image_tag: class: 'poster-info__feature-image', loading: 'lazy', style: 'max-width: 100%; height: auto;' }}
+                {{ block.settings.image | image_url: width: 500 | image_tag: class: 'poster-info__feature-image', loading: 'lazy' }}
               {%- else -%}
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg poster-info__feature-image' }}
               {%- endif -%}
@@ -135,16 +156,134 @@
   "class": "section",
   "settings": [
     {
+      "type": "header",
+      "content": "Header Settings"
+    },
+    {
       "type": "text",
       "id": "heading",
       "default": "Kaliteli Üretim, Kalıcı Anılar",
       "label": "Heading"
     },
     {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Font Size",
+      "default": 36
+    },
+    {
       "type": "textarea",
       "id": "text",
       "default": "Her posteriniz özenle seçilmiş malzemelerle üretiliyor",
       "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Text Font Size",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Feature Image Settings"
+    },
+    {
+      "type": "color",
+      "id": "feature_title_color",
+      "label": "Feature Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "feature_title_size",
+      "min": 14,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Feature Title Size",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "feature_text_color",
+      "label": "Feature Text Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "feature_text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Feature Text Size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Check Feature Settings"
+    },
+    {
+      "type": "color",
+      "id": "check_icon_color",
+      "label": "Check Icon Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "check_title_color",
+      "label": "Check Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "check_title_size",
+      "min": 14,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Check Title Size",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "check_text_color",
+      "label": "Check Text Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "check_text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Check Text Size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
     },
     {
       "type": "range",

@@ -43,8 +43,8 @@
   .customer-gallery__grid {
     display: flex;
     overflow-x: auto;
-    gap: 1rem;
-    padding-bottom: 1rem; /* Space for scrollbar if visible */
+    gap: 0;
+    padding-bottom: 1rem;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
@@ -54,35 +54,25 @@
     display: none; /* Chrome/Safari */
   }
 
-  @media screen and (min-width: 750px) {
-    .customer-gallery__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      overflow-x: visible;
-      padding-bottom: 0;
-    }
-  }
-
-  @media screen and (min-width: 990px) {
-    .customer-gallery__grid {
-      grid-template-columns: repeat(6, 1fr);
-    }
-  }
-
   .customer-gallery__item {
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: var(--media-radius);
-    background-color: rgba(var(--color-foreground), 0.1);
-    cursor: pointer;
-    flex: 0 0 40%; /* Show partial next image */
+    flex: 0 0 {{ 100.0 | divided_by: section.settings.visible_items_mobile }}%;
+    padding: 0 {{ section.settings.image_padding }}px;
     scroll-snap-align: start;
   }
 
   @media screen and (min-width: 750px) {
     .customer-gallery__item {
-      flex: unset;
+      flex: 0 0 {{ 100.0 | divided_by: section.settings.visible_items_desktop }}%;
     }
+  }
+
+  .customer-gallery__image-wrapper {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: var(--media-radius);
+    background-color: rgba(var(--color-foreground), 0.1);
+    cursor: pointer;
+    width: 100%;
   }
 
   .customer-gallery__image {
@@ -92,7 +82,7 @@
     transition: transform 0.5s ease;
   }
 
-  .customer-gallery__item:hover .customer-gallery__image {
+  .customer-gallery__image-wrapper:hover .customer-gallery__image {
     transform: scale(1.1);
   }
 {%- endstyle -%}
@@ -112,11 +102,13 @@
     <div class="customer-gallery__grid">
       {%- for block in section.blocks -%}
         <div class="customer-gallery__item">
-          {%- if block.settings.image != blank -%}
-            {{ block.settings.image | image_url: width: 400 | image_tag: class: 'customer-gallery__image', loading: 'lazy' }}
-          {%- else -%}
-            {{ 'image' | placeholder_svg_tag: 'placeholder-svg customer-gallery__image' }}
-          {%- endif -%}
+          <div class="customer-gallery__image-wrapper">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 400 | image_tag: class: 'customer-gallery__image', loading: 'lazy' }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg customer-gallery__image' }}
+            {%- endif -%}
+          </div>
         </div>
       {%- endfor -%}
     </div>
@@ -146,6 +138,38 @@
       "id": "text",
       "default": "Binlerce mutlu müşterimizin evlerini süsleyen özel tasarımlardan ilham alın",
       "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Carousel Settings"
+    },
+    {
+      "type": "range",
+      "id": "visible_items_desktop",
+      "min": 2,
+      "max": 8,
+      "step": 0.5,
+      "label": "Visible Items (Desktop)",
+      "default": 4.5
+    },
+    {
+      "type": "range",
+      "id": "visible_items_mobile",
+      "min": 1,
+      "max": 4,
+      "step": 0.5,
+      "label": "Visible Items (Mobile)",
+      "default": 2.5
+    },
+    {
+      "type": "range",
+      "id": "image_padding",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Image Side Padding",
+      "default": 10
     },
     {
       "type": "range",
