@@ -58,16 +58,9 @@
     width: 2rem;
   }
 
-  @media screen and (max-width: 749px) {
-    .top-bar-content {
-      justify-content: center;
-      text-align: center;
-    }
-    .top-bar__menu {
-      justify-content: center;
-    }
-    .section-top-bar .list-social {
-      justify-content: center;
+  @media screen and (max-width: 989px) {
+    .section-top-bar {
+      display: none;
     }
   }
 {%- endstyle -%}
@@ -82,6 +75,12 @@
               <a href="{{ block.settings.url }}" class="top-bar__link">{{ block.settings.title }}</a>
             </li>
           {%- endfor -%}
+        {%- else -%}
+          <li><a href="#" class="top-bar__link">Pituco'nun Hikayesi</a></li>
+          <li><a href="#" class="top-bar__link">Sanat & Süreç</a></li>
+          <li><a href="#" class="top-bar__link">Sizden Gelenler</a></li>
+          <li><a href="#" class="top-bar__link">Sıkça Sorulan Sorular</a></li>
+          <li><a href="#" class="top-bar__link">İletişim</a></li>
         {%- endif -%}
       </ul>
       
@@ -136,7 +135,44 @@
   ],
   "presets": [
     {
-      "name": "Top Bar"
+      "name": "Top Bar",
+      "blocks": [
+        {
+          "type": "link",
+          "settings": {
+            "title": "Pituco'nun Hikayesi",
+            "url": "#"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "title": "Sanat & Süreç",
+            "url": "#"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "title": "Sizden Gelenler",
+            "url": "#"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "title": "Sıkça Sorulan Sorular",
+            "url": "#"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "title": "İletişim",
+            "url": "#"
+          }
+        }
+      ]
     }
   ]
 }

@@ -509,21 +509,31 @@
                 >
 
                 <!-- Mobile Logo -->
-                {%- if section.settings.mobile_logo != blank -%}
+                {%- if section.settings.mobile_logo_initial != blank -%}
                   <img
-                    src="{{ section.settings.mobile_logo | image_url: width: mobile_logo_width }}"
+                    src="{{ section.settings.mobile_logo_initial | image_url: width: mobile_logo_width }}"
                     alt="{{ shop.name | escape }}"
                     style="width: {{ mobile_logo_width }}px; height: auto;"
                     width="{{ mobile_logo_width }}"
                     class="header__heading-logo logo-initial medium-hide large-up-hide"
                   >
-                  <img
-                    src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
-                    alt="{{ shop.name | escape }}"
-                    style="width: {{ mobile_logo_width }}px; height: auto;"
-                    width="{{ mobile_logo_width }}"
-                    class="header__heading-logo logo-scrolled medium-hide large-up-hide"
-                  >
+                  {%- if section.settings.mobile_logo_scrolled != blank -%}
+                    <img
+                      src="{{ section.settings.mobile_logo_scrolled | image_url: width: mobile_logo_width }}"
+                      alt="{{ shop.name | escape }}"
+                      style="width: {{ mobile_logo_width }}px; height: auto;"
+                      width="{{ mobile_logo_width }}"
+                      class="header__heading-logo logo-scrolled medium-hide large-up-hide"
+                    >
+                  {%- else -%}
+                    <img
+                      src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
+                      alt="{{ shop.name | escape }}"
+                      style="width: {{ mobile_logo_width }}px; height: auto;"
+                      width="{{ mobile_logo_width }}"
+                      class="header__heading-logo logo-scrolled medium-hide large-up-hide"
+                    >
+                  {%- endif -%}
                 {%- else -%}
                    <img
                     src="{{ 'pituco-logo-initial.png' | asset_url }}"
@@ -968,7 +978,7 @@
       "min": 50,
       "max": 250,
       "step": 5,
-      "default": 100,
+      "default": 150,
       "unit": "px",
       "label": "Mobile Logo Width"
     },
