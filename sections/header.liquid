@@ -133,29 +133,58 @@
   /* Centered/Distributed logo for mobile and tablet only */
   @media screen and (max-width: 989px) {
     .header {
-      display: flex;
-      justify-content: space-between;
+      display: grid !important;
+      grid-template-columns: 1fr auto 1fr !important;
+      grid-template-areas: "left-icons heading icons" !important;
       align-items: center;
-      gap: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
 
     .header__heading {
+      grid-area: heading;
+      justify-self: center !important;
+      text-align: center !important;
       margin: 0;
-      flex-grow: 1;
-      text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
 
     .header__heading-link {
        display: inline-block;
+       line-height: 0;
     }
 
     .header__icons {
+      grid-area: icons;
+      justify-self: end !important;
       display: flex;
       gap: 0.5rem;
     }
 
     header-drawer {
+      grid-area: left-icons;
+      justify-self: start !important;
       margin: 0;
+    }
+
+    /* Mobile Logo Switching */
+    .header__heading-logo.logo-initial,
+    .header__heading-logo.logo-scrolled {
+        display: none;
+        width: 150px; /* Force width */
+        height: auto;
+    }
+    
+    /* Initial State: Show Initial Logo */
+    .section-header:not(.scrolled-past-header) .header__heading-logo.logo-initial {
+        display: block !important;
+    }
+    
+    /* Scrolled State: Show Scrolled Logo */
+    .section-header.scrolled-past-header .header__heading-logo.logo-scrolled {
+        display: block !important;
     }
 
     /* Mobile Header Colors - Scrolled */
@@ -188,29 +217,6 @@
     .menu-drawer .svg-wrapper > svg {
       fill: {{ section.settings.mobile_text_initial | default: '#f4f4ec' }} !important;
       color: {{ section.settings.mobile_text_initial | default: '#f4f4ec' }} !important;
-    }
-    
-    /* Mobile Logo Switching */
-    .header__heading-logo.mobile-logo-initial,
-    .header__heading-logo.mobile-logo-scrolled {
-        display: none; /* Hidden by default, controlled below */
-        transform: scale({{ section.settings.mobile_logo_scale | default: 1.0 }});
-        transform-origin: center;
-    }
-    
-    /* Initial State: Show Initial Logo */
-    .section-header:not(.scrolled-past-header) .header__heading-logo.mobile-logo-initial {
-        display: block;
-    }
-    
-    /* Scrolled State: Show Scrolled Logo */
-    .section-header.scrolled-past-header .header__heading-logo.mobile-logo-scrolled {
-        display: block;
-    }
-    
-    /* Fallback if scrolled logo is missing, keep initial */
-    .section-header.scrolled-past-header .header__heading-logo.mobile-logo-initial:last-child {
-         display: block;
     }
   }
 </style>
@@ -511,26 +517,26 @@
                 <!-- Mobile Logo -->
                 {%- if section.settings.mobile_logo_initial != blank -%}
                   <img
-                    src="{{ section.settings.mobile_logo_initial | image_url: width: mobile_logo_width }}"
+                    src="{{ section.settings.mobile_logo_initial | image_url: width: 150 }}"
                     alt="{{ shop.name | escape }}"
-                    style="width: {{ mobile_logo_width }}px; height: auto;"
-                    width="{{ mobile_logo_width }}"
+                    style="width: 150px; height: auto;"
+                    width="150"
                     class="header__heading-logo logo-initial medium-hide large-up-hide"
                   >
                   {%- if section.settings.mobile_logo_scrolled != blank -%}
                     <img
-                      src="{{ section.settings.mobile_logo_scrolled | image_url: width: mobile_logo_width }}"
+                      src="{{ section.settings.mobile_logo_scrolled | image_url: width: 150 }}"
                       alt="{{ shop.name | escape }}"
-                      style="width: {{ mobile_logo_width }}px; height: auto;"
-                      width="{{ mobile_logo_width }}"
+                      style="width: 150px; height: auto;"
+                      width="150"
                       class="header__heading-logo logo-scrolled medium-hide large-up-hide"
                     >
                   {%- else -%}
                     <img
                       src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
                       alt="{{ shop.name | escape }}"
-                      style="width: {{ mobile_logo_width }}px; height: auto;"
-                      width="{{ mobile_logo_width }}"
+                      style="width: 150px; height: auto;"
+                      width="150"
                       class="header__heading-logo logo-scrolled medium-hide large-up-hide"
                     >
                   {%- endif -%}
@@ -538,15 +544,15 @@
                    <img
                     src="{{ 'pituco-logo-initial.png' | asset_url }}"
                     alt="{{ shop.name | escape }}"
-                    style="width: {{ mobile_logo_width }}px; height: auto;"
-                    width="{{ mobile_logo_width }}"
+                    style="width: 150px; height: auto;"
+                    width="150"
                     class="header__heading-logo logo-initial medium-hide large-up-hide"
                   >
                   <img
                     src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
                     alt="{{ shop.name | escape }}"
-                    style="width: {{ mobile_logo_width }}px; height: auto;"
-                    width="{{ mobile_logo_width }}"
+                    style="width: 150px; height: auto;"
+                    width="150"
                     class="header__heading-logo logo-scrolled medium-hide large-up-hide"
                   >
                 {%- endif -%}
@@ -972,41 +978,7 @@
       "id": "mobile_logo_scrolled",
       "label": "Mobile Logo (Scrolled)"
     },
-    {
-      "type": "range",
-      "id": "mobile_logo_width",
-      "min": 50,
-      "max": 250,
-      "step": 5,
-      "default": 150,
-      "unit": "px",
-      "label": "Mobile Logo Width"
-    },
-    {
-      "type": "range",
-      "id": "mobile_logo_scale",
-      "min": 0.5,
-      "max": 2.0,
-      "step": 0.1,
-      "default": 1.0,
-      "label": "Mobile Logo Scale"
-    },
-    {
-      "type": "select",
-      "id": "mobile_logo_position",
-      "options": [
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "left",
-          "label": "Left"
-        }
-      ],
-      "default": "center",
-      "label": "Mobile Logo Position"
-    },
+
     {
       "type": "header",
       "content": "t:sections.header.settings.header__utilities.content"
