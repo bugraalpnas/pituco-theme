@@ -25,59 +25,6 @@
         "accent_color": "#d84575"
       }
     },
-    "top_bar_LftLyQ": {
-      "type": "top-bar",
-      "blocks": {
-        "link_XgtrRx": {
-          "type": "link",
-          "settings": {
-            "title": "Pituco'nun Hikayesi",
-            "url": "shopify://pages/cerceveler"
-          }
-        },
-        "link_4frUJR": {
-          "type": "link",
-          "settings": {
-            "title": "Sanat & Süreç",
-            "url": ""
-          }
-        },
-        "link_VYULM4": {
-          "type": "link",
-          "settings": {
-            "title": "Sizden Gelenler",
-            "url": ""
-          }
-        },
-        "link_WPDKke": {
-          "type": "link",
-          "settings": {
-            "title": "Sıkça Sorulan Sorular",
-            "url": "shopify://pages/faq"
-          }
-        },
-        "link_UkezAJ": {
-          "type": "link",
-          "settings": {
-            "title": "İletişim",
-            "url": ""
-          }
-        }
-      },
-      "block_order": [
-        "link_XgtrRx",
-        "link_4frUJR",
-        "link_VYULM4",
-        "link_WPDKke",
-        "link_UkezAJ"
-      ],
-      "name": "Top Bar",
-      "settings": {
-        "show_top_bar": true,
-        "bg_color": "#000000",
-        "text_color": "#f4f4ec"
-      }
-    },
     "header": {
       "type": "header",
       "settings": {
@@ -100,7 +47,6 @@
   },
   "order": [
     "announcement_bar_r3ieEc",
-    "top_bar_LftLyQ",
     "header"
   ]
 }
