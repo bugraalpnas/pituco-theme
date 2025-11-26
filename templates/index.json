@@ -125,9 +125,23 @@
       "name": "Poster Info",
       "settings": {
         "heading": "Kaliteli Üretim, Kalıcı Anılar",
+        "heading_color": "#f2efe5",
+        "heading_size": 36,
         "text": "Her posteriniz özenle seçilmiş malzemelerle üretiliyor",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "text_color": "#f3f3f3",
+        "text_size": 18,
+        "feature_title_color": "#dc3c6e",
+        "feature_title_size": 20,
+        "feature_text_color": "#ffffff",
+        "feature_text_size": 16,
+        "check_icon_color": "#f2efe5",
+        "check_title_color": "#dc3c6e",
+        "check_title_size": 20,
+        "check_text_color": "#f2efe5",
+        "check_text_size": 16,
+        "padding_top": 0,
+        "padding_bottom": 24,
+        "full_width": false
       }
     },
     "multicolumn_dx9izg": {
@@ -193,7 +207,8 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "full_width": false
       }
     },
     "customer_gallery_hgypj7": {
@@ -237,6 +252,9 @@
         "heading_start": "Müşterilerimizin",
         "heading_highlight": "Özel Anıları",
         "text": "Binlerce mutlu müşterimizin evlerini süsleyen özel tasarımlardan ilham alın",
+        "visible_items_desktop": 4.5,
+        "visible_items_mobile": 2.5,
+        "image_padding": 10,
         "padding_top": 64,
         "padding_bottom": 64
       }
