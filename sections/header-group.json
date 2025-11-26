@@ -25,13 +25,66 @@
         "accent_color": "#d84575"
       }
     },
+    "top_bar_LftLyQ": {
+      "type": "top-bar",
+      "blocks": {
+        "link_XgtrRx": {
+          "type": "link",
+          "settings": {
+            "title": "Pituco'nun Hikayesi",
+            "url": "shopify://pages/cerceveler"
+          }
+        },
+        "link_4frUJR": {
+          "type": "link",
+          "settings": {
+            "title": "Sanat & Süreç",
+            "url": ""
+          }
+        },
+        "link_VYULM4": {
+          "type": "link",
+          "settings": {
+            "title": "Sizden Gelenler",
+            "url": ""
+          }
+        },
+        "link_WPDKke": {
+          "type": "link",
+          "settings": {
+            "title": "Sıkça Sorulan Sorular",
+            "url": "shopify://pages/faq"
+          }
+        },
+        "link_UkezAJ": {
+          "type": "link",
+          "settings": {
+            "title": "İletişim",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "link_XgtrRx",
+        "link_4frUJR",
+        "link_VYULM4",
+        "link_WPDKke",
+        "link_UkezAJ"
+      ],
+      "name": "Top Bar",
+      "settings": {
+        "show_top_bar": true,
+        "bg_color": "#000000",
+        "text_color": "#f4f4ec"
+      }
+    },
     "header": {
       "type": "header",
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
         "menu_type_desktop": "mega",
-        "sticky_header_type": "always",
+        "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "",
@@ -43,64 +96,11 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
-    },
-    "top_bar_FFiMBf": {
-      "type": "top-bar",
-      "blocks": {
-        "link_4MNwdk": {
-          "type": "link",
-          "settings": {
-            "title": "Pituco'nun Hikayesi",
-            "url": "#"
-          }
-        },
-        "link_GqQgCJ": {
-          "type": "link",
-          "settings": {
-            "title": "Sanat & Süreç",
-            "url": "#"
-          }
-        },
-        "link_raYHQ4": {
-          "type": "link",
-          "settings": {
-            "title": "Sizden Gelenler",
-            "url": "#"
-          }
-        },
-        "link_zVDfac": {
-          "type": "link",
-          "settings": {
-            "title": "Sıkça Sorulan Sorular",
-            "url": "#"
-          }
-        },
-        "link_7RAwna": {
-          "type": "link",
-          "settings": {
-            "title": "İletişim",
-            "url": "#"
-          }
-        }
-      },
-      "block_order": [
-        "link_4MNwdk",
-        "link_GqQgCJ",
-        "link_raYHQ4",
-        "link_zVDfac",
-        "link_7RAwna"
-      ],
-      "name": "Top Bar",
-      "settings": {
-        "show_top_bar": true,
-        "bg_color": "#000000",
-        "text_color": "#f4f4ec"
-      }
     }
   },
   "order": [
     "announcement_bar_r3ieEc",
-    "top_bar_FFiMBf",
+    "top_bar_LftLyQ",
     "header"
   ]
 }

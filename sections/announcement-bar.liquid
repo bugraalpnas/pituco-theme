@@ -98,13 +98,8 @@
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                // Sadece ürün sayfasında DEĞİLSEK modalı aç
-                var isProductPage = window.location.pathname.includes('/products/');
-                
-                if (!isProductPage) {
-                    // 1. Modalı açık tut (Kullanıcı başarı mesajını görsün)
-                    document.getElementById('newsletter-modal').style.display = 'flex';
-                }
+                // 1. Modalı açık tut (Kullanıcı başarı mesajını görsün)
+                document.getElementById('newsletter-modal').style.display = 'flex';
                 
                 // 2. Tarayıcı hafızasına "Bu kişi üye oldu" diye yaz
                 localStorage.setItem('is_subscribed', 'true');
@@ -316,6 +311,5 @@
             marqueeBar.style.display = 'none';
         }
     }
-    // Üye olmamışsa kayan yazı her zaman görünür kalacak (scroll olsa bile)
   });
 </script>

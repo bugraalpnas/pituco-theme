@@ -2286,8 +2286,6 @@ input[type='checkbox'] {
 }
 
 .shopify-section-group-header-group {
-  position: sticky;
-  top: 0;
   z-index: 4;
 }
 
