@@ -367,16 +367,21 @@
         cursor: pointer;
         padding: 0;
         z-index: 2;
-        display: none;
+        display: flex;
         align-items: center;
         justify-content: center;
-        width: 3rem;
+        width: 0;
         height: 3rem;
         flex-shrink: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, width 0.3s ease, visibility 0.3s ease;
       }
       
       .header__menu-arrow.visible {
-        display: flex;
+        width: 3rem;
+        opacity: 1;
+        visibility: visible;
       }
 
       .header__menu-arrow--left {
@@ -428,30 +433,29 @@
         if (!scrollContainer || !leftArrow || !rightArrow) return;
 
         function checkOverflow() {
-          const scrollWidth = Math.ceil(scrollContainer.scrollWidth);
-          const clientWidth = Math.ceil(scrollContainer.clientWidth);
-          const scrollLeft = Math.ceil(scrollContainer.scrollLeft);
-          const tolerance = 2; // Tolerance for sub-pixel rendering
+          const scrollWidth = scrollContainer.scrollWidth;
+          const clientWidth = scrollContainer.clientWidth;
+          const scrollLeft = scrollContainer.scrollLeft;
 
-          const isOverflowing = scrollWidth > clientWidth;
-          
-          if (isOverflowing) {
-            // Show/Hide Left Arrow
-            if (scrollLeft > 0) {
-              leftArrow.classList.add('visible');
-            } else {
-              leftArrow.classList.remove('visible');
-            }
-
-            // Show/Hide Right Arrow
-            if (scrollLeft + clientWidth < scrollWidth - tolerance) {
-              rightArrow.classList.add('visible');
-            } else {
-              rightArrow.classList.remove('visible');
-            }
-          } else {
+          // Check if content fits entirely
+          if (scrollWidth <= clientWidth) {
             leftArrow.classList.remove('visible');
             rightArrow.classList.remove('visible');
+            return;
+          }
+
+          // Left Arrow Logic
+          if (scrollLeft > 0) {
+            leftArrow.classList.add('visible');
+          } else {
+            leftArrow.classList.remove('visible');
+          }
+
+          // Right Arrow Logic
+          if (scrollLeft + clientWidth >= scrollWidth - 1) { // -1 tolerance for sub-pixel rounding
+            rightArrow.classList.remove('visible');
+          } else {
+            rightArrow.classList.add('visible');
           }
         }
 
