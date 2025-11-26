@@ -134,6 +134,14 @@
         "settings": {
           "color_scheme": "scheme-1"
         }
+      },
+      "top-bar": {
+        "type": "top-bar",
+        "settings": {
+          "show_top_bar": false,
+          "bg_color": "#000000",
+          "text_color": "#f4f4ec"
+        }
       }
     },
     "content_for_index": [],

@@ -271,14 +271,26 @@
     opacity: 0.8;
   }
 
+  .header-top-bar .list-social {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
   .header-top-bar .list-social__link {
-    padding: 0 0.5rem;
+    padding: 0;
     color: inherit;
+    display: flex;
+    align-items: center;
   }
 
   .header-top-bar .list-social__item .icon {
-    height: 1.4rem;
-    width: 1.4rem;
+    height: 2rem;
+    width: 2rem;
   }
 
   @media screen and (max-width: 749px) {
