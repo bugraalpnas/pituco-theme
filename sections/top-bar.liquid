@@ -1,0 +1,133 @@
+{%- style -%}
+  .section-top-bar {
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 3; /* Ensure it sits above other content but below sticky header if needed, though it scrolls away */
+  }
+
+  .top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .top-bar__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .top-bar__link {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .top-bar__link:hover {
+    opacity: 0.8;
+  }
+
+  .section-top-bar .list-social__link {
+    padding: 0 0.5rem;
+    color: inherit;
+  }
+
+  .section-top-bar .list-social__item .icon {
+    height: 1.4rem;
+    width: 1.4rem;
+  }
+
+  @media screen and (max-width: 749px) {
+    .top-bar-content {
+      justify-content: center;
+      text-align: center;
+    }
+    .top-bar__menu {
+      justify-content: center;
+    }
+  }
+{%- endstyle -%}
+
+{%- if section.settings.show_top_bar -%}
+  <div class="section-top-bar">
+    <div class="page-width top-bar-content">
+      <ul class="top-bar__menu">
+        {%- if section.blocks.size > 0 -%}
+          {%- for block in section.blocks -%}
+            <li>
+              <a href="{{ block.settings.url }}" class="top-bar__link">{{ block.settings.title }}</a>
+            </li>
+          {%- endfor -%}
+        {%- else -%}
+          <li><a href="#" class="top-bar__link">Pituco'nun Hikayesi</a></li>
+          <li><a href="#" class="top-bar__link">Sanat & Süreç</a></li>
+          <li><a href="#" class="top-bar__link">Sizden Gelenler</a></li>
+          <li><a href="#" class="top-bar__link">Sıkça Sorulan Sorular</a></li>
+          <li><a href="#" class="top-bar__link">İletişim</a></li>
+        {%- endif -%}
+      </ul>
+      
+      <div class="top-bar__socials">
+        {%- render 'social-icons' -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Top Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_top_bar",
+      "default": true,
+      "label": "Show Top Bar"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#f4f4ec"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link Title",
+          "default": "Link"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Top Bar"
+    }
+  ]
+}
+{% endschema %}
