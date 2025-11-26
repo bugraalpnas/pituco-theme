@@ -311,10 +311,11 @@
 {%- if section.settings.show_top_bar -%}
   <div class="header-top-bar page-width">
     <ul class="header-top-bar__menu">
-      {%- if section.settings.top_bar_menu != blank -%}
-        {%- for link in section.settings.top_bar_menu.links -%}
+      {%- assign top_bar_links = section.blocks | where: "type", "top_bar_link" -%}
+      {%- if top_bar_links.size > 0 -%}
+        {%- for block in top_bar_links -%}
           <li>
-            <a href="{{ link.url }}" class="header-top-bar__link">{{ link.title }}</a>
+            <a href="{{ block.settings.url }}" class="header-top-bar__link">{{ block.settings.title }}</a>
           </li>
         {%- endfor -%}
       {%- else -%}
@@ -889,7 +890,7 @@
 {
   "name": "t:sections.header.name",
   "class": "section-header",
-  "max_blocks": 3,
+  "max_blocks": 10,
   "settings": [
     {
       "type": "header",
@@ -901,11 +902,7 @@
       "default": true,
       "label": "Show Top Bar"
     },
-    {
-      "type": "link_list",
-      "id": "top_bar_menu",
-      "label": "Top Bar Menu"
-    },
+
     {
       "type": "color",
       "id": "top_bar_bg",
@@ -1145,6 +1142,23 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "top_bar_link",
+      "name": "Top Bar Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link Title",
+          "default": "Link"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        }
+      ]
     }
   ]
 }
