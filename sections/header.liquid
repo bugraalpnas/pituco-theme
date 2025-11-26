@@ -333,15 +333,139 @@
       {%- endif -%}
     {%- endif -%}
 
-    {%- liquid
-      if section.settings.menu != blank
-        if section.settings.menu_type_desktop == 'dropdown'
-          render 'header-dropdown-menu'
-        elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
-        endif
-      endif
-    %}
+    <style>
+      .header__menu-wrapper {
+        display: flex;
+        align-items: center;
+        position: relative;
+        flex-grow: 1;
+        overflow: hidden;
+        margin: 0 1rem;
+      }
+
+      .header__menu-scroll-container {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+        scroll-behavior: smooth;
+        width: 100%;
+      }
+
+      .header__menu-scroll-container::-webkit-scrollbar {
+        display: none; /* Webkit */
+      }
+
+      .header__menu-arrow {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 2;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        flex-shrink: 0;
+      }
+      
+      .header__menu-arrow.visible {
+        display: flex;
+      }
+
+      .header__menu-arrow--left {
+        transform: rotate(90deg);
+      }
+
+      .header__menu-arrow--right {
+        transform: rotate(-90deg);
+      }
+
+      /* Force inline menu items to not wrap */
+      .header__menu-scroll-container .list-menu--inline {
+        flex-wrap: nowrap !important;
+      }
+    </style>
+
+    <div class="header__menu-wrapper">
+      <button class="header__menu-arrow header__menu-arrow--left header__icon" aria-label="Scroll Left">
+        <span class="svg-wrapper">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+      </button>
+      
+      <div class="header__menu-scroll-container" id="HeaderMenuScrollContainer">
+        {%- liquid
+          if section.settings.menu != blank
+            if section.settings.menu_type_desktop == 'dropdown'
+              render 'header-dropdown-menu'
+            elsif section.settings.menu_type_desktop != 'drawer'
+              render 'header-mega-menu'
+            endif
+          endif
+        %}
+      </div>
+
+      <button class="header__menu-arrow header__menu-arrow--right header__icon" aria-label="Scroll Right">
+        <span class="svg-wrapper">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+      </button>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const scrollContainer = document.getElementById('HeaderMenuScrollContainer');
+        const leftArrow = document.querySelector('.header__menu-arrow--left');
+        const rightArrow = document.querySelector('.header__menu-arrow--right');
+
+        if (!scrollContainer || !leftArrow || !rightArrow) return;
+
+        function checkOverflow() {
+          const isOverflowing = scrollContainer.scrollWidth > scrollContainer.clientWidth;
+          
+          if (isOverflowing) {
+            // Show/Hide Left Arrow
+            if (scrollContainer.scrollLeft > 0) {
+              leftArrow.classList.add('visible');
+            } else {
+              leftArrow.classList.remove('visible');
+            }
+
+            // Show/Hide Right Arrow
+            // Use a small tolerance (1px) for calculation errors
+            if (scrollContainer.scrollLeft + scrollContainer.clientWidth < scrollContainer.scrollWidth - 1) {
+              rightArrow.classList.add('visible');
+            } else {
+              rightArrow.classList.remove('visible');
+            }
+          } else {
+            leftArrow.classList.remove('visible');
+            rightArrow.classList.remove('visible');
+          }
+        }
+
+        // Initial check
+        checkOverflow();
+
+        // Event Listeners
+        scrollContainer.addEventListener('scroll', checkOverflow);
+        window.addEventListener('resize', checkOverflow);
+
+        leftArrow.addEventListener('click', function() {
+          scrollContainer.scrollBy({ left: -200, behavior: 'smooth' });
+        });
+
+        rightArrow.addEventListener('click', function() {
+          scrollContainer.scrollBy({ left: 200, behavior: 'smooth' });
+        });
+        
+        // Check again after a short delay to ensure fonts/layout loaded
+        setTimeout(checkOverflow, 500);
+      });
+    </script>
 
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
