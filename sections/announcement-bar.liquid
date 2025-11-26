@@ -98,8 +98,13 @@
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                // 1. Modalı açık tut (Kullanıcı başarı mesajını görsün)
-                document.getElementById('newsletter-modal').style.display = 'flex';
+                // Sadece ürün sayfasında DEĞİLSEK modalı aç
+                var isProductPage = window.location.pathname.includes('/products/');
+                
+                if (!isProductPage) {
+                    // 1. Modalı açık tut (Kullanıcı başarı mesajını görsün)
+                    document.getElementById('newsletter-modal').style.display = 'flex';
+                }
                 
                 // 2. Tarayıcı hafızasına "Bu kişi üye oldu" diye yaz
                 localStorage.setItem('is_subscribed', 'true');
@@ -303,13 +308,7 @@
 
   // SAYFA YÜKLENDİĞİNDE ÇALIŞACAK KOD
   document.addEventListener("DOMContentLoaded", function() {
-    // Kullanıcı daha önce üye olduysa kontrol et
-    if (localStorage.getItem('is_subscribed') === 'true') {
-        // EĞER ÜYE OLMUŞSA: Üstteki kayan yazıyı tamamen yok et!
-        var marqueeBar = document.getElementById('marquee-bar-container');
-        if(marqueeBar) {
-            marqueeBar.style.display = 'none';
-        }
-    }
+    // Marquee bar artık her zaman görünür kalacak
+    // Kullanıcı üye olsa bile kayan yazı gizlenmeyecek
   });
 </script>
