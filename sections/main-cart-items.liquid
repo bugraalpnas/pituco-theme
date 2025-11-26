@@ -12,7 +12,7 @@
   }
 
   .section-{{ section.id }}-padding .page-width {
-    max-width: 1400px;
+    max-width: {{ section.settings.section_width }}px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
@@ -475,6 +475,16 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Section Width",
+      "default": 1200
     },
     {
       "type": "header",

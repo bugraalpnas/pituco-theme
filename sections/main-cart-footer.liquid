@@ -10,10 +10,17 @@
   }
 
   .section-{{ section.id }}-padding .page-width {
-    max-width: 1400px;
+    max-width: {{ section.settings.section_width }}px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
+
+  .cart__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: {% if section.settings.content_alignment == 'left' %}flex-start{% elsif section.settings.content_alignment == 'center' %}center{% else %}flex-end{% endif %};
+  }
+
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding .page-width {
@@ -152,6 +159,36 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Section Width",
+      "default": 1200
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right",
+      "label": "Content Alignment"
     },
     {
       "type": "header",
