@@ -308,7 +308,14 @@
 
   // SAYFA YÜKLENDİĞİNDE ÇALIŞACAK KOD
   document.addEventListener("DOMContentLoaded", function() {
-    // Marquee bar artık her zaman görünür kalacak
-    // Kullanıcı üye olsa bile kayan yazı gizlenmeyecek
+    // Kullanıcı daha önce üye olduysa kontrol et
+    if (localStorage.getItem('is_subscribed') === 'true') {
+        // EĞER ÜYE OLMUŞSA: Üstteki kayan yazıyı tamamen yok et!
+        var marqueeBar = document.getElementById('marquee-bar-container');
+        if(marqueeBar) {
+            marqueeBar.style.display = 'none';
+        }
+    }
+    // Üye olmamışsa kayan yazı her zaman görünür kalacak (scroll olsa bile)
   });
 </script>
