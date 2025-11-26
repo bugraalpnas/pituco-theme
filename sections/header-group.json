@@ -43,10 +43,64 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "top_bar_FFiMBf": {
+      "type": "top-bar",
+      "blocks": {
+        "link_4MNwdk": {
+          "type": "link",
+          "settings": {
+            "title": "Pituco'nun Hikayesi",
+            "url": "#"
+          }
+        },
+        "link_GqQgCJ": {
+          "type": "link",
+          "settings": {
+            "title": "Sanat & Süreç",
+            "url": "#"
+          }
+        },
+        "link_raYHQ4": {
+          "type": "link",
+          "settings": {
+            "title": "Sizden Gelenler",
+            "url": "#"
+          }
+        },
+        "link_zVDfac": {
+          "type": "link",
+          "settings": {
+            "title": "Sıkça Sorulan Sorular",
+            "url": "#"
+          }
+        },
+        "link_7RAwna": {
+          "type": "link",
+          "settings": {
+            "title": "İletişim",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "link_4MNwdk",
+        "link_GqQgCJ",
+        "link_raYHQ4",
+        "link_zVDfac",
+        "link_7RAwna"
+      ],
+      "name": "Top Bar",
+      "settings": {
+        "show_top_bar": true,
+        "bg_color": "#000000",
+        "text_color": "#f4f4ec"
+      }
     }
   },
   "order": [
     "announcement_bar_r3ieEc",
+    "top_bar_FFiMBf",
     "header"
   ]
 }
