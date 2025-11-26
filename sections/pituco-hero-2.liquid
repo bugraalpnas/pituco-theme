@@ -454,17 +454,40 @@
     if (window.innerWidth < 1024) {
       const buttons = document.querySelector('.pituco-hero-buttons');
       const footer = document.querySelector('footer') || document.querySelector('.section-footer') || document.querySelector('#shopify-section-footer');
+      const menuDrawer = document.querySelector('#Details-menu-drawer-container');
       
-      if (buttons && footer) {
-        window.addEventListener('scroll', () => {
-          const footerRect = footer.getBoundingClientRect();
-          // If footer top is visible in viewport (or close to it)
-          if (footerRect.top < window.innerHeight) {
-            buttons.classList.add('hidden-sticky');
-          } else {
-            buttons.classList.remove('hidden-sticky');
-          }
-        });
+      if (buttons) {
+        // Scroll logic
+        if (footer) {
+          window.addEventListener('scroll', () => {
+            const footerRect = footer.getBoundingClientRect();
+            if (footerRect.top < window.innerHeight) {
+              buttons.classList.add('hidden-sticky');
+            } else {
+              // Only remove hidden-sticky if menu is NOT open
+              if (!menuDrawer || !menuDrawer.hasAttribute('open')) {
+                buttons.classList.remove('hidden-sticky');
+              }
+            }
+          });
+        }
+
+        // Menu toggle logic
+        if (menuDrawer) {
+          const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+              if (mutation.type === 'attributes' && mutation.attributeName === 'open') {
+                if (menuDrawer.hasAttribute('open')) {
+                  buttons.style.display = 'none';
+                } else {
+                  buttons.style.display = 'flex';
+                }
+              }
+            });
+          });
+          
+          observer.observe(menuDrawer, { attributes: true });
+        }
       }
     }
   });
