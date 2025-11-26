@@ -1053,7 +1053,7 @@ a.product__text {
   display: none;
 }
 
-.product__modal-opener>.loading__spinner {
+.product__modal-opener>.loading__spinner:not(.hidden) {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
