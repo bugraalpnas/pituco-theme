@@ -94,7 +94,7 @@
 {%- endstyle -%}
 
 <div class="poster-info section-{{ section.id }}-padding">
-  <div class="page-width">
+  <div class="{% unless section.settings.full_width %}page-width{% endunless %}">
     <div class="poster-info__header">
       <h2 class="poster-info__heading">{{ section.settings.heading }}</h2>
       <p class="poster-info__text">{{ section.settings.text }}</p>
@@ -165,6 +165,12 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 80
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "Make section full width"
     }
   ],
   "blocks": [
