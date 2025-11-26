@@ -51,11 +51,18 @@
     color: inherit;
     display: flex;
     align-items: center;
+    cursor: pointer;
+    text-decoration: none;
   }
 
   .section-top-bar .list-social__item .icon {
     height: 2rem;
     width: 2rem;
+    pointer-events: none;
+  }
+
+  .section-top-bar .list-social__item .svg-wrapper {
+    pointer-events: none;
   }
 
   @media screen and (max-width: 989px) {
