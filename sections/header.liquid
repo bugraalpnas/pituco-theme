@@ -515,7 +515,14 @@
                     alt="{{ shop.name | escape }}"
                     style="width: {{ mobile_logo_width }}px; height: auto;"
                     width="{{ mobile_logo_width }}"
-                    class="header__heading-logo medium-hide large-up-hide"
+                    class="header__heading-logo logo-initial medium-hide large-up-hide"
+                  >
+                  <img
+                    src="{{ 'pituco-logo-scrolled.png' | asset_url }}"
+                    alt="{{ shop.name | escape }}"
+                    style="width: {{ mobile_logo_width }}px; height: auto;"
+                    width="{{ mobile_logo_width }}"
+                    class="header__heading-logo logo-scrolled medium-hide large-up-hide"
                   >
                 {%- else -%}
                    <img
