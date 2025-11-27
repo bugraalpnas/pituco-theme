@@ -73,12 +73,12 @@
 
   /* Header Scroll Effects */
   .header-wrapper {
-    background-color: #000000; /* Initial background (Dark) */
+    background-color: #1A1348; /* Initial background (Dark) */
     transition: background-color 0.3s ease;
   }
 
   .section-header.scrolled-past-header .header-wrapper {
-    background-color: #f4f4ec; /* Scrolled background (Light) */
+    background-color: #f2efe5; /* Scrolled background (Light) */
   }
 
   .header__heading-logo.logo-scrolled {
@@ -98,13 +98,13 @@
   .list-menu__item,
   .header__menu-item,
   .header__active-menu-item {
-    color: #f4f4ec;
+    color: #f2efe5;
   }
 
   .header__icon .icon,
   .header__icon .svg-wrapper > svg {
-    fill: #f4f4ec;
-    color: #f4f4ec;
+    fill: #f2efe5;
+    color: #f2efe5;
   }
   
   /* Header Text & Icon Colors - Scrolled (Black) */
@@ -112,14 +112,14 @@
   .section-header.scrolled-past-header .list-menu__item,
   .section-header.scrolled-past-header .header__menu-item,
   .section-header.scrolled-past-header .header__active-menu-item {
-    color: #000000;
+    color: #1A1348;
     transition: color 0.3s ease;
   }
 
   .section-header.scrolled-past-header .header__icon .icon,
   .section-header.scrolled-past-header .header__icon .svg-wrapper > svg {
-    fill: #000000;
-    color: #000000;
+    fill: #1A1348;
+    color: #1A1348;
     transition: fill 0.3s ease, color 0.3s ease;
   }
 
@@ -189,34 +189,34 @@
 
     /* Mobile Header Colors - Scrolled */
     .section-header.scrolled-past-header .header-wrapper {
-      background-color: {{ section.settings.mobile_bg_scrolled | default: '#f4f4ec' }};
+      background-color: {{ section.settings.mobile_bg_scrolled | default: '#f2efe5' }};
     }
     .section-header.scrolled-past-header .header__icon,
     .section-header.scrolled-past-header .list-menu__item,
     .section-header.scrolled-past-header .header__menu-item,
     .section-header.scrolled-past-header .header__active-menu-item {
-      color: {{ section.settings.mobile_text_scrolled | default: '#000000' }};
+      color: {{ section.settings.mobile_text_scrolled | default: '#1A1348' }};
     }
     .section-header.scrolled-past-header .header__icon .icon,
     .section-header.scrolled-past-header .header__icon .svg-wrapper > svg {
-      fill: {{ section.settings.mobile_text_scrolled | default: '#000000' }};
-      color: {{ section.settings.mobile_text_scrolled | default: '#000000' }};
+      fill: {{ section.settings.mobile_text_scrolled | default: '#1A1348' }};
+      color: {{ section.settings.mobile_text_scrolled | default: '#1A1348' }};
     }
 
     /* Lock Mobile Menu Drawer Colors to Initial State */
     .menu-drawer {
-      background-color: {{ section.settings.mobile_bg_initial | default: '#000000' }} !important;
+      background-color: {{ section.settings.mobile_bg_initial | default: '#1A1348' }} !important;
     }
     .menu-drawer .menu-drawer__menu-item,
     .menu-drawer .menu-drawer__close-button,
     .menu-drawer .menu-drawer__utility-links,
     .menu-drawer .list-social__item .icon {
-      color: {{ section.settings.mobile_text_initial | default: '#f4f4ec' }} !important;
+      color: {{ section.settings.mobile_text_initial | default: '#f2efe5' }} !important;
     }
     .menu-drawer .icon,
     .menu-drawer .svg-wrapper > svg {
-      fill: {{ section.settings.mobile_text_initial | default: '#f4f4ec' }} !important;
-      color: {{ section.settings.mobile_text_initial | default: '#f4f4ec' }} !important;
+      fill: {{ section.settings.mobile_text_initial | default: '#f2efe5' }} !important;
+      color: {{ section.settings.mobile_text_initial | default: '#f2efe5' }} !important;
     }
   }
 </style>
