@@ -229,17 +229,6 @@
     },
     "176416295998275d32": {
       "type": "apps",
-      "blocks": {
-        "easyreviews_product_review_WiRiB6": {
-          "type": "shopify://apps/easyreviews/blocks/product_review/1341251b-09d7-46f3-ba6a-e732a50e97a5",
-          "settings": {
-            "product": "{{product}}"
-          }
-        }
-      },
-      "block_order": [
-        "easyreviews_product_review_WiRiB6"
-      ],
       "settings": {
         "include_margins": true
       }
