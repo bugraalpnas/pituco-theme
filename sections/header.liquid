@@ -189,34 +189,34 @@
 
     /* Mobile Header Colors - Scrolled */
     .section-header.scrolled-past-header .header-wrapper {
-      background-color: {{ section.settings.mobile_bg_scrolled | default: '#f2efe5' }};
+      background-color: #f2efe5;
     }
     .section-header.scrolled-past-header .header__icon,
     .section-header.scrolled-past-header .list-menu__item,
     .section-header.scrolled-past-header .header__menu-item,
     .section-header.scrolled-past-header .header__active-menu-item {
-      color: {{ section.settings.mobile_text_scrolled | default: '#1A1348' }};
+      color: #1A1348;
     }
     .section-header.scrolled-past-header .header__icon .icon,
     .section-header.scrolled-past-header .header__icon .svg-wrapper > svg {
-      fill: {{ section.settings.mobile_text_scrolled | default: '#1A1348' }};
-      color: {{ section.settings.mobile_text_scrolled | default: '#1A1348' }};
+      fill: #1A1348;
+      color: #1A1348;
     }
 
     /* Lock Mobile Menu Drawer Colors to Initial State */
     .menu-drawer {
-      background-color: {{ section.settings.mobile_bg_initial | default: '#1A1348' }} !important;
+      background-color: #1A1348 !important;
     }
     .menu-drawer .menu-drawer__menu-item,
     .menu-drawer .menu-drawer__close-button,
     .menu-drawer .menu-drawer__utility-links,
     .menu-drawer .list-social__item .icon {
-      color: {{ section.settings.mobile_text_initial | default: '#f2efe5' }} !important;
+      color: #f2efe5 !important;
     }
     .menu-drawer .icon,
     .menu-drawer .svg-wrapper > svg {
-      fill: {{ section.settings.mobile_text_initial | default: '#f2efe5' }} !important;
-      color: {{ section.settings.mobile_text_initial | default: '#f2efe5' }} !important;
+      fill: #f2efe5 !important;
+      color: #f2efe5 !important;
     }
   }
 </style>
