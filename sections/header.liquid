@@ -226,6 +226,13 @@
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 1.5rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 1.5rem;
   }
 
+  @media screen and (max-width: 768px) {
+    .header {
+      padding-bottom: 5px !important; /* Significantly reduced padding for mobile */
+      margin-bottom: 0 !important;
+    }
+  }
+
   .section-header {
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
     margin-bottom: 0px;
