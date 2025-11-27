@@ -24,8 +24,8 @@
         "image_1": "shopify://shop_images/Untitled_design_2.png",
         "video_1": "shopify://files/videos/ssstik.io_@frameology__1764086894906.mp4",
         "image_2": "shopify://shop_images/Untitled_design_1.png",
-        "bg_color": "#121212",
-        "text_color": "#f2efe5",
+        "bg_color": "#f2efe5",
+        "text_color": "#242833",
         "accent_color": "#d84575"
       }
     },
@@ -366,7 +366,7 @@
             "link": "shopify://collections/personalized",
             "overlay_color": "#dc3c6e",
             "overlay_opacity": 50,
-            "text_color": "#FFFFFF"
+            "text_color": "#ffffff"
           }
         },
         "collection_block_U7XR7D": {
@@ -376,7 +376,7 @@
             "link": "",
             "overlay_color": "#000000",
             "overlay_opacity": 50,
-            "text_color": "#FFFFFF"
+            "text_color": "#ffffff"
           }
         },
         "collection_block_iW37B6": {
@@ -386,7 +386,7 @@
             "link": "",
             "overlay_color": "#000000",
             "overlay_opacity": 50,
-            "text_color": "#FFFFFF"
+            "text_color": "#ffffff"
           }
         }
       },
