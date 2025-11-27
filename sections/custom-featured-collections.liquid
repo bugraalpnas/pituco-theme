@@ -113,7 +113,7 @@
        Let's enforce a reasonable height or aspect ratio if image is missing, 
        but usually we want the image to dictate or a fixed height. 
        Let's use a padding-bottom hack or aspect-ratio property for consistency. */
-    aspect-ratio: 1 / 1; 
+    aspect-ratio: 3 / 2; 
     overflow: hidden;
     border-radius: 8px; /* Optional rounded corners */
     text-decoration: none;
@@ -125,6 +125,11 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .collection-card:hover img {
+    transform: scale(1.05);
   }
 
   .collection-card__placeholder {
@@ -176,8 +181,7 @@
     }
     
     .collection-card {
-        aspect-ratio: 16/9; /* More landscape on mobile maybe? Or keep square. Let's keep square or 4/3 */
-        aspect-ratio: 4/3;
+        aspect-ratio: 3/2;
     }
   }
 </style>
