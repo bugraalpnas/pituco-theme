@@ -11,7 +11,7 @@
   "current": {
     "logo_width": 90,
     "favicon": "shopify://shop_images/Kurumsal_Kimlik-01.png",
-    "type_header_font": "abril_fatface_n4",
+    "type_header_font": "outfit_n6",
     "heading_scale": 110,
     "type_body_font": "comfortaa_n4",
     "body_scale": 115,
@@ -151,7 +151,7 @@
           "background": "#f2efe5",
           "background_gradient": "",
           "text": "#1a1348",
-          "button": "#dc3c6e",
+          "button": "#d84575",
           "button_label": "#1a1348",
           "secondary_button_label": "#1a1348",
           "shadow": "#0b0039"
