@@ -57,160 +57,6 @@
         "padding_bottom": 36
       }
     },
-    "poster_info_gWLPnR": {
-      "type": "poster-info",
-      "blocks": {
-        "feature_image_dqrd4w": {
-          "type": "feature_image",
-          "settings": {
-            "image": "shopify://shop_images/1.png",
-            "title": "Premium Baskı Kağıdı",
-            "text": "300 gsm premium mat kağıt kullanarak uzun ömürlü ve canlı renkler sunuyoruz."
-          }
-        },
-        "feature_image_7HCVwk": {
-          "type": "feature_image",
-          "settings": {
-            "image": "shopify://shop_images/2.png",
-            "title": "Kaliteli Çerçeveler",
-            "text": "Doğal ahşap ve modern metal çerçeve seçenekleri ile dekorasyonunuza uyum sağlar."
-          }
-        },
-        "feature_image_rhxrH4": {
-          "type": "feature_image",
-          "settings": {
-            "image": "shopify://shop_images/3.png",
-            "title": "Profesyonel Detay",
-            "text": "Her poster özenle paketlenir ve hasarsızlık için ekstra korumaya alınarak gönderilir."
-          }
-        },
-        "feature_check_RjGt77": {
-          "type": "feature_check",
-          "settings": {
-            "title": "UV Korumalı Baskı",
-            "text": "Renklerin solmasını önleyen özel UV koruma teknolojisi"
-          }
-        },
-        "feature_check_FbH7Ln": {
-          "type": "feature_check",
-          "settings": {
-            "title": "Su Bazlı Mürekkep",
-            "text": "Çevre dostu, kokusuz ve insan sağlığına zararsız mürekkep"
-          }
-        },
-        "feature_check_rwTeRe": {
-          "type": "feature_check",
-          "settings": {
-            "title": "Hızlı ve Güvenli Kargo",
-            "text": "Özel koruyucu ambalaj ile 2-4 iş günü teslimat"
-          }
-        },
-        "feature_check_TPexRq": {
-          "type": "feature_check",
-          "settings": {
-            "title": "Memnuniyet Garantisi",
-            "text": "30 gün içinde koşulsuz iade ve değişim hakkı"
-          }
-        }
-      },
-      "block_order": [
-        "feature_image_dqrd4w",
-        "feature_image_7HCVwk",
-        "feature_image_rhxrH4",
-        "feature_check_RjGt77",
-        "feature_check_FbH7Ln",
-        "feature_check_rwTeRe",
-        "feature_check_TPexRq"
-      ],
-      "name": "Poster Info",
-      "settings": {
-        "heading": "Kaliteli Üretim, Kalıcı Anılar",
-        "heading_color": "#f2efe5",
-        "heading_size": 36,
-        "text": "Her posteriniz özenle seçilmiş malzemelerle üretiliyor",
-        "text_color": "#f3f3f3",
-        "text_size": 18,
-        "feature_title_color": "#dc3c6e",
-        "feature_title_size": 24,
-        "feature_text_color": "#ffffff",
-        "feature_text_size": 16,
-        "check_icon_color": "#f2efe5",
-        "check_title_color": "#dc3c6e",
-        "check_title_size": 21,
-        "check_text_color": "#f2efe5",
-        "check_text_size": 15,
-        "padding_top": 0,
-        "padding_bottom": 24,
-        "full_width": false
-      }
-    },
-    "multicolumn_dx9izg": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_igmxKp": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_1.png",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/personalized"
-          }
-        },
-        "column_eQfwgm": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_2.png",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_YKmFfk": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_UkpYci": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_igmxKp",
-        "column_eQfwgm",
-        "column_YKmFfk",
-        "column_UkpYci"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "none",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "full_width": false
-      }
-    },
     "customer_gallery_hgypj7": {
       "type": "customer-gallery",
       "blocks": {
@@ -237,6 +83,10 @@
         "image_NnCQE3": {
           "type": "image",
           "settings": {}
+        },
+        "image_TTpgfT": {
+          "type": "image",
+          "settings": {}
         }
       },
       "block_order": [
@@ -245,7 +95,8 @@
         "image_mCRLTi",
         "image_kzpMiH",
         "image_Gj3hph",
-        "image_NnCQE3"
+        "image_NnCQE3",
+        "image_TTpgfT"
       ],
       "name": "Customer Gallery",
       "settings": {
@@ -405,8 +256,6 @@
   "order": [
     "pituco_hero_2_tGWAQ8",
     "featured_collection",
-    "poster_info_gWLPnR",
-    "multicolumn_dx9izg",
     "customer_gallery_hgypj7",
     "featured_collection_tAKc33",
     "collapsible_content_fbxXjB",
