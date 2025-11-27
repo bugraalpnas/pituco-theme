@@ -74,8 +74,8 @@
       "name": "Top Bar",
       "settings": {
         "show_top_bar": true,
-        "bg_color": "#000000",
-        "text_color": "#f4f4ec"
+        "bg_color": "#f2efe5",
+        "text_color": "#242833"
       }
     },
     "header": {
