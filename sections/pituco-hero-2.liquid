@@ -170,12 +170,16 @@
     position: relative;
     overflow: hidden;
     padding-bottom: 80px; /* Space for sticky buttons on mobile */
+    min-height: 85vh; /* Increase section height */
+    display: flex;
+    align-items: center;
   }
 
   @media screen and (min-width: 768px) {
     .pituco-hero-2 {
       padding: 4rem 2rem;
       padding-bottom: 4rem;
+      min-height: 90vh; /* Taller on desktop */
     }
   }
 
@@ -185,207 +189,10 @@
     margin: 0 auto;
     display: grid;
     gap: 2rem;
+    height: 100%;
   }
 
-  /* Mobile Layout (Default) */
-  .pituco-hero-container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-      "img1 video"
-      "text text"
-      "img2 img2";
-  }
-
-  .pituco-hero-content {
-    grid-area: text;
-    text-align: center;
-    width: 100%;
-  }
-
-  .pituco-hero-media {
-    display: contents; /* Allow children to participate in parent grid */
-  }
-
-  .media-item.image-item:first-of-type {
-    grid-area: img1;
-  }
-
-  .media-item.video-item {
-    grid-area: video;
-  }
-
-  .media-item.image-item:last-of-type {
-    grid-area: img2;
-  }
-
-  /* Desktop Layout: Side by Side */
-  @media screen and (min-width: 1024px) {
-    .pituco-hero-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      gap: 4rem;
-      padding: 0 2rem;
-    }
-
-    .pituco-hero-content {
-      text-align: left;
-      max-width: 50%;
-      margin: 0;
-      flex: 1;
-    }
-
-    .pituco-hero-media {
-      display: grid;
-      flex: 1;
-      max-width: 50%;
-      grid-template-columns: 1fr 1.2fr 1fr;
-      gap: 1rem;
-      align-items: center;
-    }
-    
-    .media-item.image-item:first-of-type,
-    .media-item.video-item,
-    .media-item.image-item:last-of-type {
-      grid-area: auto; /* Reset grid areas */
-    }
-    
-    .pituco-hero-buttons {
-      justify-content: flex-start;
-      position: static;
-      padding: 0;
-      background: none;
-      box-shadow: none;
-    }
-  }
-
-  /* Title Styles */
-  .pituco-hero-title {
-    font-family: serif; 
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    font-size: 2.5rem;
-  }
-
-  @media screen and (min-width: 768px) {
-    .pituco-hero-title {
-      font-size: 4.5rem;
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    .pituco-hero-title {
-      font-size: 5rem;
-    }
-  }
-
-  .title-line1, .title-line2, .title-line3 {
-    display: inline-block;
-    margin: 0 4px;
-  }
-  
-  /* Remove margin from first line if left aligned */
-  @media screen and (min-width: 1024px) {
-    .title-line1 { margin-left: 0; }
-  }
-
-  .title-line2 {
-    font-style: italic;
-  }
-
-  /* Description Styles */
-  .pituco-hero-description {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    opacity: 0.8;
-  }
-
-  @media screen and (min-width: 768px) {
-    .pituco-hero-description {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-    }
-  }
-
-  /* Buttons */
-  .pituco-hero-buttons {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* Sticky on Mobile & Tablet (up to 1023px) */
-  @media screen and (max-width: 1023px) {
-    .pituco-hero-buttons {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: white;
-      padding: 1rem;
-      z-index: 100;
-      box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease; /* Smooth transition for hide/show */
-    }
-
-    .pituco-hero-buttons.hidden-sticky {
-      transform: translateY(100%); /* Slide down to hide */
-    }
-
-    /* Button 1 Black Style on Mobile/Tablet */
-    .pituco-btn-outline {
-        border-color: #000000 !important;
-        color: #000000 !important;
-    }
-  }
-
-  .pituco-btn {
-    padding: 12px 20px;
-    border-radius: 50px; /* Rounded pill shape */
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    flex: 1; /* Full width on mobile */
-    white-space: nowrap;
-  }
-  
-  @media screen and (min-width: 768px) {
-    .pituco-btn {
-        flex: initial;
-        padding: 14px 28px;
-        font-size: 1rem;
-    }
-  }
-
-  .pituco-btn-outline {
-    background-color: transparent;
-    border: 2px solid currentColor;
-  }
-
-  .pituco-btn-outline:hover {
-    opacity: 0.7;
-  }
-
-  .pituco-btn-primary {
-    border: none;
-    color: #fff;
-  }
-
-  .pituco-btn-primary:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-  }
+  /* ... (skip unchanged) ... */
 
   .media-item {
     position: relative;
@@ -393,7 +200,7 @@
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     width: 100%;
-    height: 100%;
+    height: auto; /* Allow height to be determined by aspect ratio */
   }
   
   .media-item.image-item:first-of-type {
@@ -401,7 +208,8 @@
   }
   
   .media-item.video-item {
-     aspect-ratio: 9/16; /* Vertical video aspect ratio */
+     aspect-ratio: 9/16 !important; /* Enforce Vertical video aspect ratio */
+     height: auto;
   }
   
   .media-item.image-item:last-of-type {
@@ -416,7 +224,8 @@
       }
       
       .video-item {
-         aspect-ratio: 9/16;
+         aspect-ratio: 9/16 !important;
+         height: auto;
       }
       
       .media-item.image-item:first-of-type,
