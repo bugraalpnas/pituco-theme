@@ -354,6 +354,52 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "custom_featured_collections_iaBeCD": {
+      "type": "custom-featured-collections",
+      "blocks": {
+        "collection_block_Qykm7V": {
+          "type": "collection_block",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_1.png",
+            "title": "Kişiselleştirilebilir Posterler",
+            "link": "shopify://collections/personalized",
+            "overlay_color": "#dc3c6e",
+            "overlay_opacity": 50,
+            "text_color": "#FFFFFF"
+          }
+        },
+        "collection_block_U7XR7D": {
+          "type": "collection_block",
+          "settings": {
+            "title": "Collection Name",
+            "link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 50,
+            "text_color": "#FFFFFF"
+          }
+        },
+        "collection_block_iW37B6": {
+          "type": "collection_block",
+          "settings": {
+            "title": "Collection Name",
+            "link": "",
+            "overlay_color": "#000000",
+            "overlay_opacity": 50,
+            "text_color": "#FFFFFF"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_Qykm7V",
+        "collection_block_U7XR7D",
+        "collection_block_iW37B6"
+      ],
+      "name": "Custom Featured Collections",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -364,6 +410,7 @@
     "customer_gallery_hgypj7",
     "featured_collection_tAKc33",
     "collapsible_content_fbxXjB",
-    "17641629190842a7d2"
+    "17641629190842a7d2",
+    "custom_featured_collections_iaBeCD"
   ]
 }
