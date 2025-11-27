@@ -19,9 +19,9 @@
         "bg_color": "#d84575",
         "text_color": "#ffffff",
         "speed": 160,
-        "popup_title": "%15 İndirim Kazanın!",
-        "popup_desc": "E-posta listemize katılın ve ilk siparişinizde kullanabileceğiniz %15 indirim kodunu hemen alın.",
-        "button_text": "İndirim Kodumu Gönder",
+        "popup_title": "",
+        "popup_desc": "",
+        "button_text": "",
         "accent_color": "#d84575"
       }
     },
