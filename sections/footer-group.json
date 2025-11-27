@@ -70,8 +70,8 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "custom_background_color": "#f4f4ec",
-        "footer_text_color": "#000000",
+        "custom_background_color": "#1a1348",
+        "footer_text_color": "#f2efe5",
         "footer_logo": "shopify://shop_images/Logotype-02.png",
         "logo_width": 120,
         "show_social": false,
